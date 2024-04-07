@@ -7,13 +7,13 @@ export const all = styled.div`
 
 export const back = styled.div`
   width: 480px;
-  height: 1900px;
+  height: 1750px;
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
   background: #3ddc63;
   margin-left: 900px;
-  top: -800px;
+  top: -825px;
 
   /* width: 900px;
   height: 3000px;
@@ -27,9 +27,9 @@ export const back = styled.div`
 
 export const cart = styled.img`
   position: absolute;
-  width: 550px;
-  height: 550px;
-  margin-top: 230px;
+  width: 500px;
+  height: 500px;
+  margin-top: 200px;
   margin-left: 100px;
 `;
 
@@ -89,7 +89,7 @@ export const emailbox = styled.input`
   border: 2px #efefef solid;
   position: absolute;
   margin-left: 830px;
-  margin-top: 250px;
+  margin-top: 200px;
   font-family: Noto Sans KR;
   font-size: large;
 `;
@@ -112,7 +112,7 @@ export const passwordbox = styled.input`
   border: 2px #efefef solid;
   position: absolute;
   margin-left: 830px;
-  margin-top: 350px;
+  margin-top: 300px;
   font-family: Noto Sans KR;
   font-size: large;
 `;
@@ -130,7 +130,7 @@ export const googlelogin = styled.button`
   border: 2px #efefef solid;
   position: absolute;
   margin-left: 830px;
-  margin-top: 500px;
+  margin-top: 420px;
 `;
 
 export const googlelogo = styled.img`
@@ -154,7 +154,7 @@ export const login = styled.button`
   border: none;
   position: absolute;
   margin-left: 830px;
-  margin-top: 600px;
+  margin-top: 510px;
 `;
 
 export const signup = styled.text`
@@ -164,7 +164,7 @@ export const signup = styled.text`
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 700px;
+  margin-top: 620px;
   margin-left: 1000px;
   width: 190px;
 `;
@@ -176,7 +176,7 @@ export const divideline = styled.div`
   position: absolute;
   background-color: #adadad;
   margin-left: 1080px;
-  margin-top: 760px;
+  margin-top: 690px;
 `;
 
 export const searchid = styled.text`
@@ -186,7 +186,7 @@ export const searchid = styled.text`
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 750px;
+  margin-top: 680px;
   margin-left: 950px;
   width: 190px;
 `;
@@ -198,7 +198,7 @@ export const searchpassword = styled.text`
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 750px;
+  margin-top: 680px;
   margin-left: 1140px;
   width: 190px;
 `;
