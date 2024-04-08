@@ -1,5 +1,4 @@
 import React from "react";
-import "../../style/Login.style";
 import * as L from "../../style/Login.style";
 import googlelogo from "../../img/googlelogo.png"
 import cart from "../../img/nonabilryo_cart.png"
