@@ -17,6 +17,11 @@ function SignUp() {
       <S.emailbox placeholder="이메일을 입력해주세요"/>
       <S.emailcheck>중복 확인</S.emailcheck>
       <S.passwordbox placeholder="비밀번호를 입력해주세요"/>
+      <S.addressbox placeholder="주소를 입력해주세요"/>
+      <S.phonenumbox placeholder="전화번호를 입력해주세요"/>
+      <S.numcertifi>인증하기</S.numcertifi>
+      <S.signup>회원가입</S.signup>
+
 
 
     </>
