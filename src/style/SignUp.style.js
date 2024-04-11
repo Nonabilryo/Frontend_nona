@@ -1,75 +1,75 @@
 import styled from "styled-components";
 
 export const back = styled.div`
-  width: 480px;
-  height: 1750px;
+  width: 30vw;
+  height: 100vw;
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
   background: #3ddc63;
-  margin-left: 900px;
-  top: -825px;
+  margin-left: 46.9vw;
+  top: -43vw;
 `;
 
 export const cart = styled.img`
   position: absolute;
-  width: 500px;
-  height: 500px;
-  margin-top: 200px;
-  margin-left: 100px;
+  width: 34vw;
+  height: 34vw;
+  margin-top: 15vw;
+  margin-left: 5.2vw;
 `;
 
 export const title1 = styled.div`
   text-align: right;
   color: black;
-  font-size: 40px;
+  font-size: 2.5vw;
   font-family: Noto Sans KR;
   font-weight: 700;
-  margin-left: 1150px;
-  margin-top: 25px;
+  margin-left: 78.5vw;
+  margin-top: 1.9vw;
   position: absolute;
-  width: 185px;
-  height: 40px;
+  width: 12.7vw;
+  height: 3vw;
 `;
 
 export const title2 = styled.div`
   text-align: right;
   color: #3ddc63;
-  font-size: 50px;
+  font-size: 3.6vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   position: absolute;
-  margin-left: 1025px;
-  margin-top: 70px;
-  width: 175px;
-  height: 50px;
+  margin-left: 69vw;
+  margin-top: 4.5vw;
+  width: 13.3vw;
+  height: 4vw;
 `;
 
 export const title3 = styled.div`
   text-align: right;
   color: black;
-  font-size: 45px;
+  font-size: 3vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   word-wrap: break-word;
   position: absolute;
-  margin-left: 1205px;
-  margin-top: 75px;
-  width: 130px;
-  height: 50px;
+  margin-left: 82.2vw;
+  margin-top: 5.2vw;
+  width: 8.7vw;
+  height: 3.3vw;
 `;
 
 export const nickcheck = styled.button`
-  width: 130px;
-  height: 55px;
+  width: 9vw;
+  height: 4vw;
   background: #3ddc63;
-  border-radius: 15px;
+  border-radius: 0.8vw;
   border: none;
-  margin-left: 1205px;
-  margin-top: 165px;
+  margin-left: 82vw;
+  margin-top: 11.3vw;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
@@ -77,75 +77,75 @@ export const nickcheck = styled.button`
 
 export const nickbox = styled.input`
   &::placeholder {
-    width: 150px;
-    height: 20px;
+    width: 10.5vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 400px;
-  height: 55px;
+  width: 27vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 165px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 11.1vw;
+  margin-left: 53.3vw;
 `;
 
 export const namebox = styled.input`
   &::placeholder {
-    width: 160px;
-    height: 20px;
+    width: 10.5vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 545px;
-  height: 55px;
+  width: 37vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 245px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 16.5vw;
+  margin-left: 53.3vw;
 `;
 
 export const emailbox = styled.input`
   &::placeholder {
-    width: 180px;
-    height: 20px;
+    width: 11.5vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 400px;
-  height: 55px;
+  width: 27vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 325px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 21.9vw;
+  margin-left: 53.3vw;
 `;
 
 export const emailcheck = styled.button`
-  width: 130px;
-  height: 55px;
+  width: 9vw;
+  height: 4vw;
   background: #3ddc63;
-  border-radius: 15px;
+  border-radius: 0.8vw;
   border: none;
-  margin-left: 1205px;
-  margin-top: 325px;
+  margin-left: 82vw;
+  margin-top: 21.9vw;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
@@ -153,92 +153,92 @@ export const emailcheck = styled.button`
 
 export const passwordbox = styled.input`
   &::placeholder {
-    width: 195px;
-    height: 20px;
+    width: 12.7vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 545px;
-  height: 55px;
+  width: 37vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 405px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 27.3vw;
+  margin-left: 53.3vw;
 `;
 
 export const addressbox = styled.input`
   &::placeholder {
-    width: 195px;
-    height: 20px;
+    width: 12.7vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 545px;
-  height: 55px;
+  width: 37vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 485px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 32.7vw;
+  margin-left: 53.3vw;
 `;
 
 export const phonenumbox = styled.input`
   &::placeholder {
-    width: 195px;
-    height: 20px;
+    width: 12.7vw;
+    height: 1.3vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 400px;
-  height: 55px;
+  width: 27vw;
+  height: 4vw;
   position: absolute;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  margin-top: 565px;
-  margin-left: 785px;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 38.1vw;
+  margin-left: 53.3vw;
 `;
 
 export const numcertifi = styled.button`
-  position: absolute;
-  width: 130px;
-  height: 55px;
+  width: 9vw;
+  height: 4vw;
   background: #3ddc63;
-  border-radius: 15px;
+  border-radius: 0.8vw;
   border: none;
+  margin-left: 82vw;
+  margin-top: 38.1vw;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: Pretendard;
+  position: absolute;
   font-weight: 600;
-  margin-left: 1205px;
-  margin-top: 565px;
 `;
 
 export const signup = styled.button`
-  width: 545px;
-  height: 70px;
+  width: 37.8vw;
+  height: 5vw;
   position: absolute;
   background: #3ddc63;
-  border-radius: 15px;
+  border-radius: 0.8vw;
   position: absolute;
   color: white;
-  font-size: 35px;
+  font-size: 2.2vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   border: none;
-  margin-top: 665px;
-  margin-left: 785px;
+  margin-top: 45vw;
+  margin-left: 53.3vw;
 `;
