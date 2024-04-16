@@ -13,13 +13,17 @@ function SignUp() {
 
       <S.nickcheck>중복 확인</S.nickcheck>
       <S.nickbox placeholder="닉네임" />
-      <S.namebox placeholder="이름을 입력해주세요"/>
+      <S.idbox placeholder="아이디를 입력해주세요"/>
       <S.emailbox placeholder="이메일을 입력해주세요"/>
-      <S.emailcheck>중복 확인</S.emailcheck>
+      <S.emailcheck>인증하기</S.emailcheck>
+      <S.emailicertinum placeholder="인증 번호"/>
+      <S.emailpass>확인</S.emailpass>
+
       <S.passwordbox placeholder="비밀번호를 입력해주세요"/>
-      <S.addressbox placeholder="주소를 입력해주세요"/>
+      <S.passcheck placeholder="비밀번호를 다시 입력해주세요"/>
       <S.phonenumbox placeholder="전화번호를 입력해주세요"/>
       <S.numcertifi>인증하기</S.numcertifi>
+      <S.phonenumbox placeholder="전화번호를 입력해주세요"/>
       <S.signup>회원가입</S.signup>
 
 

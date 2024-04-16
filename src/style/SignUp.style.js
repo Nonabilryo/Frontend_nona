@@ -40,9 +40,9 @@ export const title2 = styled.div`
   font-weight: 700;
   position: absolute;
   margin-left: 69vw;
-  margin-top: 4.5vw;
+  margin-top: 4.7vw;
   width: 13.3vw;
-  height: 4vw;
+  height: 3.8vw;
 `;
 
 export const title3 = styled.div`
@@ -95,9 +95,9 @@ export const nickbox = styled.input`
   margin-left: 53.3vw;
 `;
 
-export const namebox = styled.input`
+export const idbox = styled.input`
   &::placeholder {
-    width: 10.5vw;
+    width: 12vw;
     height: 1.3vw;
     color: #adadad;
     font-size: 1.3vw;
@@ -151,9 +151,9 @@ export const emailcheck = styled.button`
   font-weight: 600;
 `;
 
-export const passwordbox = styled.input`
+export const emailicertinum = styled.input`
   &::placeholder {
-    width: 12.7vw;
+    width: 11.5vw;
     height: 1.3vw;
     color: #adadad;
     font-size: 1.3vw;
@@ -161,7 +161,7 @@ export const passwordbox = styled.input`
     position: absolute;
     margin-left: 1.6vw;
   }
-  width: 37vw;
+  width: 27vw;
   height: 4vw;
   position: absolute;
   background: white;
@@ -169,9 +169,30 @@ export const passwordbox = styled.input`
   border: 0.2vw #efefef solid;
   margin-top: 27.3vw;
   margin-left: 53.3vw;
+  position: absolute;
 `;
 
-export const addressbox = styled.input`
+
+
+
+
+export const emailpass = styled.button`
+  width: 9vw;
+  height: 4vw;
+  background: #3ddc63;
+  border-radius: 0.8vw;
+  border: none;
+  margin-left: 82vw;
+  margin-top: 27.3vw;
+  text-align: center;
+  color: white;
+  font-size: 1.5vw;
+  font-family: Pretendard;
+  position: absolute;
+  font-weight: 600;
+`;
+
+export const passwordbox = styled.input`
   &::placeholder {
     width: 12.7vw;
     height: 1.3vw;
@@ -191,6 +212,26 @@ export const addressbox = styled.input`
   margin-left: 53.3vw;
 `;
 
+export const passcheck = styled.input`
+  &::placeholder {
+    width: 15.2vw;
+    height: 1.3vw;
+    color: #adadad;
+    font-size: 1.3vw;
+    font-family: Noto Sans KR;
+    position: absolute;
+    margin-left: 1.6vw;
+  }
+  width: 37vw;
+  height: 4vw;
+  position: absolute;
+  background: white;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 38.1vw;
+  margin-left: 53.3vw;
+`;
+
 export const phonenumbox = styled.input`
   &::placeholder {
     width: 12.7vw;
@@ -207,7 +248,7 @@ export const phonenumbox = styled.input`
   background: white;
   border-radius: 0.8vw;
   border: 0.2vw #efefef solid;
-  margin-top: 38.1vw;
+  margin-top: 43.5vw;
   margin-left: 53.3vw;
 `;
 
@@ -218,7 +259,7 @@ export const numcertifi = styled.button`
   border-radius: 0.8vw;
   border: none;
   margin-left: 82vw;
-  margin-top: 38.1vw;
+  margin-top: 43.5vw;
   text-align: center;
   color: white;
   font-size: 1.5vw;
@@ -239,6 +280,6 @@ export const signup = styled.button`
   font-family: Noto Sans KR;
   font-weight: 700;
   border: none;
-  margin-top: 45vw;
+  margin-top: 50vw;
   margin-left: 53.3vw;
 `;
