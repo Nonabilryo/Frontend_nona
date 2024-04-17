@@ -3,7 +3,7 @@ import * as S from "../../style/SignUp.style";
 import cart from "../../img/nonabilryo_cart.png";
 
 function SignUp() {
-  return (
+  return(
     <>
       <S.back/>
       <S.cart img src={cart} alt="cart" />
