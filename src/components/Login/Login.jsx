@@ -1,35 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as L from "../../style/Login.style";
-import googlelogo from "../../img/googlelogo.png";
-import cart from "../../img/nonabilryo_cart.png";
+import googlelogo from "../../assets/img/googlelogo.png";
+import cart from "../../assets/img/nonabilryo_cart.png";
+
 import axios from "axios";
+import CONFIG from "../../config/config.json";
 
 const Login = () => {
-  const [post,setPost] = useState([]);
-  const [id,setId] = useState("");
-	const [password,setPassword] = useState("");
+  const [loginData, setLoginData] = useState({
+    id: "",
+    password: "",
+  });
 
-  const ServerConnect = () => {
-    const Token = cookieStore.get("accessToken");
-    axios
-      .post("http://api.nonabili.store:8080/sso/login", {
-        headers:{
-          Authrozation: `Bearer ${Token}`,
-        },
-        data:{
-          id : id,
-          password : password,
-        }
-      }).then((e) => {
-        console.log(e);
-        console.log("로그인 성공");
-      }).catch((e) => {
-        console.log(e);
-        console.log("로그인 실패");
-      });
+  const handleLoginChange = useCallback(
+    (e) => {
+      const { value, name } = e.target;
+      setLoginData((prev) => ({ ...prev, [name]: value }));
+    },
+    [setLoginData]
+  );
+
+  const ServerConnect = async () => {
+    const LoginData = {
+      id: loginData.id,
+      password: loginData.password,
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${CONFIG.SERVER}/sso/login`,
+        LoginData
+      );
+
+      console.log("성공");
+    } catch (e) {
+      console.log("실패");
+    }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     ServerConnect();
   }, []);
 
@@ -41,22 +50,26 @@ const Login = () => {
       <L.title2>노나빌려</L.title2>
       <L.title3>입니다!</L.title3>
       <L.emailbox
-      placeholder="이메일을 입력해주세요"
-      type="email"
-      value={id}
-      onChange={(e)=>{setId(e.target.value)}}/>
+        placeholder="이메일을 입력해주세요"
+        type="email"
+        id="id"
+        name="id"
+        onChange={handleLoginChange}
+      />
       <L.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
-        value={password}
-        onChange={(e)=>{setPassword(e.target.value)}}/>
+        name="password"
+        id="password"
+        onChange={handleLoginChange}
+      />
       <L.googlelogin>
         구글로 로그인하기
         <L.googlelogo img src={googlelogo} alt="googlelogo" />
       </L.googlelogin>
-      <L.login
-      type="submit"
-      onChange={ServerConnect}>로그인</L.login>
+      <L.login type="submit" onClick={() => ServerConnect()}>
+        로그인
+      </L.login>
       <L.signup>노나빌려 가입하러 가기</L.signup>
       <L.divideline></L.divideline>
       <L.searchid>아이디 찾기</L.searchid>
