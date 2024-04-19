@@ -25,7 +25,7 @@ export const title1 = styled.div`
   font-size: 2.5vw;
   font-family: Noto Sans KR;
   font-weight: 700;
-  margin-left: 78.5vw;
+  margin-left: 78vw;
   margin-top: 1.9vw;
   position: absolute;
   width: 12.7vw;
