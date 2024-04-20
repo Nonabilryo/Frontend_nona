@@ -3,6 +3,52 @@ import * as S from "../../style/SignUp.style";
 import cart from "../../img/nonabilryo_cart.png";
 
 function SignUp() {
+  const [SignUpData, setSignUpData] = useState({
+    name: "",
+    id: "",
+    password: "",
+    email: "",
+    tell: "",
+    adress: "",
+    emailVerifyCode: "",
+    tellVerifyCode: "",
+  });
+
+  const handleSignupChange = useCallback(
+    (e) => {
+      const { value, name } = e.target;
+      setLoginData((prev) => ({ ...prev, [name]: value }));
+    },
+    [setSignUpData]
+  );
+
+  const ServerConnect = async () => {
+    const SignUpData = {
+      name: SignUpData.name,
+      id: SignUpData.id,
+      password: SignUpData.password,
+      email: SignUpData.email,
+      tell: SignUpData.tell,
+      adress: SignUpData.adress,
+      emailVerifyCode: SignUpData.emailVerifyCode,
+      tellVerifyCode: SignUpData.tellVerifyCode,
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${CONFIG.SERVER}/sso/sign-up`,
+        SignUpData
+      );
+
+      console.log("성공");
+    } catch (e) {
+      console.log("실패");
+    }
+  };
+
+  useEffect(() => {
+    ServerConnect();
+  }, []);
   return (
     <>
       <S.back/>
