@@ -68,32 +68,32 @@ function SignUp() {
       <S.namebox
         placeholder="이름을 입력해주세요"
         type="name"
-        id="id"
+        id="name"
         name="name"
         onChange={handleSignupChange}/>
       <S.emailbox
         placeholder="이메일을 입력해주세요"
         type="email"
-        id="id"
+        id="email"
         name="email"
         onChange={handleSignupChange} />
       <S.emailcheck>중복 확인</S.emailcheck>
       <S.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
-        id="id"
+        id="password"
         name="password"
         onChange={handleSignupChange}/>
       <S.addressbox
         placeholder="주소를 입력해주세요"
         type="adress"
-        id="id"
+        id="adress"
         name="adress"
         onChange={handleSignupChange} />
       <S.phonenumbox
       placeholder="전화번호를 입력해주세요"
       type="tell"
-        id="id"
+        id="tell"
         name="tell"
         onChange={handleSignupChange}/>
       <S.numcertifi>인증하기</S.numcertifi>
