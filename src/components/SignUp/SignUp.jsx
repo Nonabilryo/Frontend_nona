@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import * as S from "../../style/SignUp.style";
 import cart from "../../img/nonabilryo_cart.png";
+import axios from "axios";
 
 function SignUp() {
   const [SignUpData, setSignUpData] = useState({
@@ -58,13 +59,43 @@ function SignUp() {
       <S.title3>입니다!</S.title3>
 
       <S.nickcheck>중복 확인</S.nickcheck>
-      <S.nickbox placeholder="닉네임" />
-      <S.namebox placeholder="이름을 입력해주세요"/>
-      <S.emailbox placeholder="이메일을 입력해주세요"/>
+      <S.nickbox
+        placeholder="닉네임"
+        type="id"
+        id="id"
+        name="id"
+        onChange={handleSignupChange} />
+      <S.namebox
+        placeholder="이름을 입력해주세요"
+        type="name"
+        id="id"
+        name="name"
+        onChange={handleSignupChange}/>
+      <S.emailbox
+        placeholder="이메일을 입력해주세요"
+        type="email"
+        id="id"
+        name="email"
+        onChange={handleSignupChange} />
       <S.emailcheck>중복 확인</S.emailcheck>
-      <S.passwordbox placeholder="비밀번호를 입력해주세요"/>
-      <S.addressbox placeholder="주소를 입력해주세요"/>
-      <S.phonenumbox placeholder="전화번호를 입력해주세요"/>
+      <S.passwordbox
+        placeholder="비밀번호를 입력해주세요"
+        type="password"
+        id="id"
+        name="password"
+        onChange={handleSignupChange}/>
+      <S.addressbox
+        placeholder="주소를 입력해주세요"
+        type="adress"
+        id="id"
+        name="adress"
+        onChange={handleSignupChange} />
+      <S.phonenumbox
+      placeholder="전화번호를 입력해주세요"
+      type="tell"
+        id="id"
+        name="tell"
+        onChange={handleSignupChange}/>
       <S.numcertifi>인증하기</S.numcertifi>
       <S.signup>회원가입</S.signup>
 
