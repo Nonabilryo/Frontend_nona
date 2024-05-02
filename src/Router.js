@@ -8,7 +8,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<h1>hi</h1>} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<SignUp />}/>
+        <Route exact path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );

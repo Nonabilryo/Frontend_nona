@@ -5,199 +5,183 @@ export const all = styled.div`
 `;
 
 export const back = styled.div`
-  width: 480px;
-  height: 1750px;
+  width: 30vw;
+  height: 100vw;
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
   background: #3ddc63;
-  margin-left: 900px;
-  top: -825px;
-
-  /* width: 900px;
-  height: 3000px;
-  background-color: #3ddc63;
-  transform: rotate(44deg);
-  position: absolute;
-  top: -1300px;
-  margin-left: 250px;
-  overflow: hidden; */
+  margin-left: 46.9vw;
+  top: -43vw;
 `;
 
 export const cart = styled.img`
   position: absolute;
-  width: 500px;
-  height: 500px;
-  margin-top: 200px;
-  margin-left: 100px;
+  width: 34vw;
+  height: 34vw;
+  margin-top: 15vw;
+  margin-left: 5.2vw;
 `;
 
-export const title1 = styled.text`
+export const title1 = styled.div`
   text-align: right;
   color: black;
-  font-size: 40px;
+  font-size: 2.5vw;
   font-family: Noto Sans KR;
   font-weight: 700;
-  margin-left: 1150px;
-  margin-top: 50px;
+  margin-left: 78vw;
+  margin-top: 3vw;
   position: absolute;
-  width: 185px;
-  height: 40px;
+  width: 12.7vw;
+  height: 3vw;
 `;
 
 export const title2 = styled.div`
   text-align: right;
   color: #3ddc63;
-  font-size: 50px;
+  font-size: 3.6vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   position: absolute;
-  margin-left: 1025px;
-  margin-top: 95px;
-  width: 175px;
-  height: 50px;
+  margin-left: 69vw;
+  margin-top: 6vw;
+  width: 13.3vw;
+  height: 3.8vw;
 `;
+
 export const title3 = styled.div`
   text-align: right;
   color: black;
-  font-size: 45px;
+  font-size: 3vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   word-wrap: break-word;
   position: absolute;
-  margin-left: 1205px;
-  margin-top: 100px;
-  width: 130px;
-  height: 50px;
+  margin-left: 82.2vw;
+  margin-top: 6.5vw;
+  width: 8.7vw;
+  height: 3.3vw;
 `;
 
 export const emailbox = styled.input`
   &::placeholder {
-    width: 180px;
-    height: 20px;
+    width: 15vw;
+    height: 5vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-  width: 500px;
-  height: 70px;
-  background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
+  width: 34vw;
+  height: 5vw;
   position: absolute;
-  margin-left: 830px;
-  margin-top: 200px;
-  font-family: Noto Sans KR;
-  font-size: large;
+  background: white;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 13vw;
+  margin-left: 56.5vw;
 `;
 
 export const passwordbox = styled.input`
   &::placeholder {
-    width: 200px;
-    height: 20px;
+    width: 15vw;
+    height: 5vw;
     color: #adadad;
-    font-size: 20px;
+    font-size: 1.3vw;
     font-family: Noto Sans KR;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 1.6vw;
   }
-
-  width: 500px;
-  height: 70px;
-  background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
+  width: 34vw;
+  height: 5vw;
   position: absolute;
-  margin-left: 830px;
-  margin-top: 300px;
-  font-family: Noto Sans KR;
-  font-size: large;
+  background: white;
+  border-radius: 0.8vw;
+  border: 0.2vw #efefef solid;
+  margin-top: 20vw;
+  margin-left: 56.5vw;
 `;
 
 export const googlelogin = styled.button`
+  height: 5vw;
   color: #adadad;
-  font-size: 20px;
+  font-size: 1.3vw;
   font-family: Noto Sans KR;
+  width: 34.7vw;
+  height: 5vw;
   position: absolute;
-  text-align: center;
-  width: 500px;
-  height: 70px;
   background: white;
-  border-radius: 15px;
-  border: 2px #efefef solid;
-  position: absolute;
-  margin-left: 830px;
-  margin-top: 420px;
+  border-radius: 0.8vw;
+  border: 0.15vw #efefef solid;
+  margin-top: 28.3vw;
+  margin-left: 56.5vw;
 `;
 
 export const googlelogo = styled.img`
-  width: 35px;
-  height: 35px;
+  width: 1.8vw;
+  height: 1.8vw;
   position: absolute;
-  left: 20px;
-  bottom: 15px;
+  left: 1.0vw;
+  bottom: 1.3vw;
 `;
 
 export const login = styled.button`
   color: white;
-  font-size: 20px;
+  font-size: 1.3vw;
   font-family: Noto Sans KR;
   position: absolute;
   text-align: center;
-  width: 500px;
-  height: 70px;
+  width: 34.7vw;
+  height: 5vw;
   background: #3ddc63;
   border-radius: 15px;
   border: none;
   position: absolute;
-  margin-left: 830px;
-  margin-top: 510px;
+  margin-top: 34.6vw;
+  margin-left: 56.5vw;
 `;
 
 export const signup = styled.text`
   color: #adadad;
-  font-size: 20px;
+  font-size: 1.4vw;
   font-family: Noto Sans KR;
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 620px;
-  margin-left: 1000px;
-  width: 190px;
+  margin-top: 43.1vw;
+  margin-left: 67.8vw;
+  width: 13.2vw;
 `;
 
 export const divideline = styled.div`
-  width: 25px;
-  height: 2px;
+  width: 1.7vw;
+  height: 0.1vw;
   transform: rotate(90deg);
   position: absolute;
   background-color: #adadad;
-  margin-left: 1080px;
-  margin-top: 690px;
+  margin-left: 73.2vw;
+  margin-top: 47vw;
 `;
 
 export const searchid = styled.text`
   color: #adadad;
-  font-size: 20px;
+  font-size: 1.4vw;
   font-family: Noto Sans KR;
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 680px;
-  margin-left: 950px;
-  width: 190px;
+  margin-top: 46.2vw;
+  margin-left: 65.5vw;
 `;
 
 export const searchpassword = styled.text`
   color: #adadad;
-  font-size: 20px;
+  font-size: 1.4vw;
   font-family: Noto Sans KR;
   font-weight: 400;
   text-decoration: underline;
   position: absolute;
-  margin-top: 680px;
-  margin-left: 1140px;
-  width: 190px;
+  margin-top: 46.2vw;
+  margin-left: 76.4vw;
 `;

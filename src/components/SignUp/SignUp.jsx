@@ -52,8 +52,9 @@ function SignUp() {
   }, []);
   return (
     <>
-      <S.back/>
+      <S.back />
       <S.cart img src={cart} alt="cart" />
+
       <S.title1>환영합니다,</S.title1>
       <S.title2>노나빌려</S.title2>
       <S.title3>입니다!</S.title3>
@@ -97,10 +98,12 @@ function SignUp() {
         name="tell"
         onChange={handleSignupChange}/>
       <S.numcertifi>인증하기</S.numcertifi>
+      <S.phonecertinum placeholder="인증 번호" />
+      <S.phonepass>확인</S.phonepass>
+
+
+
       <S.signup>회원가입</S.signup>
-
-
-
     </>
   );
 }
