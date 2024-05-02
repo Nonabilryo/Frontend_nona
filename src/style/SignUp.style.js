@@ -294,4 +294,9 @@ export const signup = styled.button`
   margin-top: 50vw;
   margin-top: 57vw;
   margin-left: 53.3vw;
+  border-radius: 0.8vw;
+  background: #3ddc63;
+  color: white;
+  font-size: 2vw;
+
 `;
