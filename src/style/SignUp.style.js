@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const back = styled.div`
   width: 30vw;
   height: 100vw;
@@ -10,7 +9,6 @@ export const back = styled.div`
   margin-left: 46.9vw;
   top: -43vw;
 `;
-
 export const cart = styled.img`
   position: absolute;
   width: 34vw;
@@ -18,7 +16,6 @@ export const cart = styled.img`
   margin-top: 15vw;
   margin-left: 5.2vw;
 `;
-
 export const title1 = styled.div`
   text-align: right;
   color: black;
@@ -31,7 +28,6 @@ export const title1 = styled.div`
   width: 12.7vw;
   height: 3vw;
 `;
-
 export const title2 = styled.div`
   text-align: right;
   color: #3ddc63;
@@ -44,7 +40,6 @@ export const title2 = styled.div`
   width: 13.3vw;
   height: 3.8vw;
 `;
-
 export const title3 = styled.div`
   text-align: right;
   color: black;
@@ -58,7 +53,6 @@ export const title3 = styled.div`
   width: 8.7vw;
   height: 3.3vw;
 `;
-
 export const nickcheck = styled.button`
   width: 9vw;
   height: 4vw;
@@ -74,7 +68,6 @@ export const nickcheck = styled.button`
   position: absolute;
   font-weight: 600;
 `;
-
 export const nickbox = styled.input`
   &::placeholder {
     width: 10.5vw;
@@ -94,7 +87,6 @@ export const nickbox = styled.input`
   margin-top: 11.1vw;
   margin-left: 53.3vw;
 `;
-
 export const idbox = styled.input`
   &::placeholder {
     width: 12vw;
@@ -114,7 +106,6 @@ export const idbox = styled.input`
   margin-top: 16.5vw;
   margin-left: 53.3vw;
 `;
-
 export const emailbox = styled.input`
   &::placeholder {
     width: 11.5vw;
@@ -134,7 +125,6 @@ export const emailbox = styled.input`
   margin-top: 21.9vw;
   margin-left: 53.3vw;
 `;
-
 export const emailcheck = styled.button`
   width: 9vw;
   height: 4vw;
@@ -150,7 +140,6 @@ export const emailcheck = styled.button`
   position: absolute;
   font-weight: 600;
 `;
-
 export const emailicertinum = styled.input`
   &::placeholder {
     width: 11.5vw;
@@ -171,11 +160,6 @@ export const emailicertinum = styled.input`
   margin-left: 53.3vw;
   position: absolute;
 `;
-
-
-
-
-
 export const emailpass = styled.button`
   width: 9vw;
   height: 4vw;
@@ -191,7 +175,6 @@ export const emailpass = styled.button`
   position: absolute;
   font-weight: 600;
 `;
-
 export const passwordbox = styled.input`
   &::placeholder {
     width: 12.7vw;
@@ -211,7 +194,6 @@ export const passwordbox = styled.input`
   margin-top: 32.7vw;
   margin-left: 53.3vw;
 `;
-
 export const passcheck = styled.input`
   &::placeholder {
     width: 15.2vw;
@@ -231,7 +213,6 @@ export const passcheck = styled.input`
   margin-top: 38.1vw;
   margin-left: 53.3vw;
 `;
-
 export const phonenumbox = styled.input`
   &::placeholder {
     width: 12.7vw;
@@ -251,7 +232,6 @@ export const phonenumbox = styled.input`
   margin-top: 43.5vw;
   margin-left: 53.3vw;
 `;
-
 export const numcertifi = styled.button`
   width: 9vw;
   height: 4vw;
@@ -269,7 +249,7 @@ export const numcertifi = styled.button`
 `;
 
 export const phonecertinum = styled.input`
-   &::placeholder {
+  &::placeholder {
     width: 11.5vw;
     height: 1.3vw;
     color: #adadad;
@@ -308,15 +288,15 @@ export const phonepass = styled.button`
 export const signup = styled.button`
   width: 37.8vw;
   height: 5vw;
-  position: absolute;
-  background: #3ddc63;
-  border-radius: 0.8vw;
-  position: absolute;
-  color: white;
-  font-size: 2.2vw;
   font-family: Noto Sans KR;
   font-weight: 700;
   border: none;
+  margin-top: 50vw;
   margin-top: 57vw;
   margin-left: 53.3vw;
+  border-radius: 0.8vw;
+  background: #3ddc63;
+  color: white;
+  font-size: 2vw;
+
 `;
