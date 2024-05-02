@@ -1,11 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as S from "../../style/SignUp.style";
 import cart from "../../assets/img/nonabilryo_cart.png";
-import cart from "../../img/nonabilryo_cart.png";
 import axios from "axios";
+import CONFIG from "../../config/config.json";
+
 
 function SignUp() {
-  const [SignUpData, setSignUpData] = useState({
+  const [signUpData, setSignUpData] = useState({
     name: "",
     id: "",
     password: "",
@@ -19,21 +20,21 @@ function SignUp() {
   const handleSignupChange = useCallback(
     (e) => {
       const { value, name } = e.target;
-      setLoginData((prev) => ({ ...prev, [name]: value }));
+      setSignUpData((prev) => ({ ...prev, [name]: value }));
     },
     [setSignUpData]
   );
 
   const ServerConnect = async () => {
     const SignUpData = {
-      name: SignUpData.name,
-      id: SignUpData.id,
-      password: SignUpData.password,
-      email: SignUpData.email,
-      tell: SignUpData.tell,
-      adress: SignUpData.adress,
-      emailVerifyCode: SignUpData.emailVerifyCode,
-      tellVerifyCode: SignUpData.tellVerifyCode,
+      name: signUpData.name,
+      id: signUpData.id,
+      password: signUpData.password,
+      email: signUpData.email,
+      tell: signUpData.tell,
+      adress: signUpData.adress,
+      emailVerifyCode: signUpData.emailVerifyCode,
+      tellVerifyCode: signUpData.tellVerifyCode,
     };
 
     try {
@@ -104,7 +105,7 @@ function SignUp() {
 
 
 
-      <S.signup>회원가입</S.signup>
+      <S.signup type="submit" onClick={() => ServerConnect()}>회원가입</S.signup>
     </>
   );
 }
