@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import * as S from "../../style/SignUp.style";
+import cart from "../../assets/img/nonabilryo_cart.png";
 import cart from "../../img/nonabilryo_cart.png";
 import axios from "axios";
 
