@@ -162,10 +162,8 @@ function SignUp() {
         name="email"
         onChange={() => {}} //handleSignupChangeVerify
       />
-      <S.emailcheck >인증하기</S.emailcheck>
       <S.emailicertinum placeholder="인증 번호" />
       <S.emailpass>확인</S.emailpass>
-      <S.passwordbox placeholder="비밀번호를 입력해주세요" />
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" />
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
 
