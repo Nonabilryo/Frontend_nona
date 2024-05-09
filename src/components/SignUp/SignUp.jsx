@@ -58,7 +58,6 @@ function SignUp() {
   return (
     <>
       <S.back />
-      {/* <S.cart img src={cart} alt="cart" /> */}
       <S.cart img src={cart} alt="cart" />
 
       <S.title1>환영합니다,</S.title1>
