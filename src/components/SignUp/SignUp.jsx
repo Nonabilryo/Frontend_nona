@@ -64,7 +64,7 @@ function SignUp() {
   const EmailCheckHandler = async () => {
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/verify/email`,
-      signUpData.email
+      {email:signUpData.email}
     );
     return response;
   };
@@ -78,7 +78,7 @@ function SignUp() {
   const TellCheckHandler = async () => {
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/verify/tell`,
-      signUpData.tell
+      {tell:signUpData.tell}
     );
     return response;
   };
@@ -92,7 +92,7 @@ function SignUp() {
   const NickCheckHandler = async () => {
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/verify/name`,
-      signUpData.tell
+      {name:signUpData.name}
     );
     return response;
   };
@@ -160,7 +160,7 @@ function SignUp() {
         type="email"
         id="email"
         name="email"
-        onChange={() => {}} //handleSignupChangeVerify
+        onChange={handleSignupChange} //handleSignupChangeVerify
       />
       <S.emailicertinum placeholder="인증 번호" />
       <S.emailpass>확인</S.emailpass>
@@ -196,7 +196,6 @@ function SignUp() {
         name="tell"
         onChange={handleSignupChange}
       />
-
       <S.numcertifi onClick={TellCheck}>인증하기</S.numcertifi>
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
       <S.phonecertinum placeholder="인증 번호" />
