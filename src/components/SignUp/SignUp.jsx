@@ -42,7 +42,9 @@ function SignUp() {
       name: signUpData.name,
       id: signUpData.id,
       password: signUpData.password,
-      adress: signUpData.adress,
+      adress: null,
+      emailVerifyCode: signUpData.emailVerifyCode,
+      tellVerifyCode: signUpData.tellVerifyCode,
     };
 
     try {
@@ -62,10 +64,9 @@ function SignUp() {
   }, []);
 
   const EmailCheckHandler = async () => {
-    const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/email`,
-      {email:signUpData.email}
-    );
+    const response = await axios.post(`${CONFIG.SERVER}/sso/verify/email`, {
+      email: signUpData.email,
+    });
     return response;
   };
 
@@ -76,10 +77,9 @@ function SignUp() {
   };
 
   const TellCheckHandler = async () => {
-    const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/tell`,
-      {tell:signUpData.tell}
-    );
+    const response = await axios.post(`${CONFIG.SERVER}/sso/verify/tell`, {
+      tell: signUpData.tell,
+    });
     return response;
   };
 
@@ -90,14 +90,15 @@ function SignUp() {
   };
 
   const NickCheckHandler = async () => {
-    const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/name`,
-      {name:signUpData.name}
-    );
+    console.log(signUpData.name + " ---------- log");
+    const response = await axios.post(`${CONFIG.SERVER}/sso/ve rify/name`, {
+      name: signUpData.name,
+    });
     return response;
   };
 
   const NickCheck = () => {
+    console.log(signUpData);
     NickCheckHandler()
       .then((e) => console.log(e))
       .catch((e) => console.log(e));
@@ -141,7 +142,7 @@ function SignUp() {
       <S.title3>입니다!</S.title3>
       <S.nickcheck onClick={NickCheck}>중복 확인</S.nickcheck>
 
-      <S.nickbox
+      {/* <S.nickbox
         placeholder="닉네임"
         type="name"
         id="name"
@@ -161,7 +162,7 @@ function SignUp() {
         id="email"
         name="email"
         onChange={handleSignupChange} //handleSignupChangeVerify
-      />
+      /> */}
       <S.emailicertinum placeholder="인증 번호" />
       <S.emailpass>확인</S.emailpass>
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" />
@@ -169,6 +170,13 @@ function SignUp() {
 
       <S.nickbox
         placeholder="닉네임"
+        type="id"
+        id="id"
+        name="name"
+        onChange={handleSignupChange}
+      />
+      <S.idbox
+        placeholder="아이디를 입력해주세요"
         type="id"
         id="id"
         name="id"
