@@ -15,36 +15,36 @@ export const logo = styled.img`
 
 export const search = styled.input`
   width: 50vw;
-  height: 4vw;
+  height: 3.5vw;
   background: white;
   border-radius: 0.7vw;
-  border: 0.3vw #3bd15f solid;
-  margin-left: 17vw;
+  border: 0.2vw #3bd15f solid;
+  margin-left: 18vw;
   margin-top: 3.8vw;
   position: absolute;
 `;
 
 export const mypage = styled.img`
-  width: 3vw;
-  height: 3.5;
+  width: 2.7vw;
+  height: 2.7vw;
   margin-left: 76vw;
   margin-top: 4.3vw;
   position: absolute;
 `;
 
 export const chat = styled.img`
-  width: 3vw;
-  height: 3.5;
+  width: 2.7vw;
+  height: 2.7vw;
   margin-left: 84vw;
   margin-top: 4.3vw;
   position: absolute;
 `;
 
 export const community = styled.img`
-  width: 3vw;
-  height: 3.5;
+  width: 2.7vw;
+  height: 2.7vw;
   margin-left: 92vw;
-  margin-top: 4.3vw;
+  margin-top: 4.5vw;
   position: absolute;
 `;
 
@@ -61,4 +61,43 @@ export const line2 = styled.img`
   height: 2.8vw;
   margin-left: 89.2vw;
   margin-top: 4.5vw;
+  position: absolute;
 `;
+
+export const search_icon = styled.img`
+  width: 2.4vw;
+  height: 2.7vw;
+  margin-top: 4.5vw;
+  margin-left: 64.5vw;
+  z-index: 2;
+  position: absolute;
+`;
+
+export const delete_search = styled.img`
+  width: 1.875vw;
+  height: 1.875vw;
+  position: absolute;
+  margin-top: 4.8vw;
+  margin-left: 61vw;
+`;
+
+export const main_line = styled.div`
+  width: 99.92vw;
+  margin-top: 10vw;
+  position: absolute;
+  border: 0.05vw #c4c4c4 solid;
+  z-index: 2;
+`;
+
+export const recommend = styled.div`
+  color: black;
+  font-size: 2.5vw;
+  font-family: Noto Sans KR;
+  font-weight: 500;
+  position: absolute;
+  z-index: 2;
+  margin-top: 14vw;
+  margin-left: 5vw;
+`;
+
+
