@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as L from "../../style/Login.style";
 import googlelogo from "../../assets/img/googlelogo.png";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
 
-const Login = () => {
+const Login = ({setIsLogin}) => {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     id: "",
     password: "",
@@ -14,32 +16,59 @@ const Login = () => {
   const handleLoginChange = useCallback(
     (e) => {
       const { value, name } = e.target;
+      console.log(value)
       setLoginData((prev) => ({ ...prev, [name]: value }));
     },
     [setLoginData]
   );
 
-  const ServerConnect = async () => {
-    const LoginData = {
-      id: loginData.id,
-      password: loginData.password,
-    };
+  // const ServerConnect = async () => {
+  //   const LoginData = {
+  //     id: loginData.id,
+  //     password: loginData.password,
+  //   };
 
-    try {
-      const { data } = await axios.post(
-        `${CONFIG.SERVER}/sso/login`,
-        LoginData
-      );
+    // try {
+    //   const { data } = await axios.post(
+    //     `${CONFIG.SERVER}/sso/login`,
+    //     LoginData
+    //   );
 
-      console.log("성공");
-    } catch (e) {
-      console.log("실패");
+    //   console.log("성공");
+    // } catch (e) {
+    //   console.log("실패");
+    // }
+  // };
+  const SubmitHandler = async () => {
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/login`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        'id' : loginData.id,
+        'password' : loginData.password
+      },
+      { withCredentials: true }
+    );
+    if (response.status) {
+      const { accessToken, refreshToken } = response.data.data;
+      localStorage.setItem('accessToken', accessToken);  // todo 쿠키로 수정
+      localStorage.setItem('refreshToken', refreshToken);  // todo 쿠키로 수정
+      setIsLogin(true)
+      navigate("/login/success");
     }
-  };
+    return response;
+  }
+  const Submit = () => {
+    SubmitHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e))
+  }
 
-  useEffect(() => {
-    ServerConnect();
-  }, []);
+  // useEffect(() => {
+  //   ServerConnect();
+  // }, []);
 
   return (
     <>
@@ -66,7 +95,7 @@ const Login = () => {
         구글로 로그인하기
         <L.googlelogo img src={googlelogo} alt="googlelogo" />
       </L.googlelogin>
-      <L.login type="submit" onClick={() => ServerConnect()}>
+      <L.login type="submit" onClick={Submit}>
         로그인
       </L.login>
       <L.signup>노나빌려 가입하러 가기</L.signup>
