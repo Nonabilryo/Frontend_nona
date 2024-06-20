@@ -16,26 +16,13 @@ function SignUp() {
     tellVerifyCode: "",
   });
 
-  // const [signupVerify, setSignUpVerify] = useState({
-  //   email: "",
-  //   tell: "",
-  // });
-
   const handleSignupChange = useCallback(
     (e) => {
       const { value, name } = e.target;
-      setSignUpData((prev) => ({ ...prev, [name]: value }));
+      setSignUpData((prev) => ({ ...prev, [name] : value }));
     },
     [setSignUpData]
   );
-
-  // const handleSignupChangeVerify = useCallback(
-  //   (e) => {
-  //     const { value, name } = e.target;
-  //     setSignUpVerify((prev) => ({ ...prev, [name]: value }));
-  //   },
-  //   [setSignUpVerify]
-  // );
 
   const ServerConnect = async () => {
     const SignUpData = {
@@ -44,17 +31,6 @@ function SignUp() {
       password: signUpData.password,
       adress: signUpData.adress,
     };
-
-    try {
-      const { data } = await axios.post(
-        `${CONFIG.SERVER}/sso/sign-up`,
-        SignUpData
-      );
-
-      console.log("성공");
-    } catch (e) {
-      console.log("실패");
-    }
   };
 
   useEffect(() => {
@@ -63,8 +39,14 @@ function SignUp() {
 
   const EmailCheckHandler = async () => {
     const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/email`,
-      signUpData.email
+      `/sso/verify/email`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        'email' : signUpData.email
+      },
+      { withCredentials: true }
     );
     return response;
   };
@@ -77,8 +59,14 @@ function SignUp() {
 
   const TellCheckHandler = async () => {
     const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/tell`,
-      signUpData.tell
+      `/sso/verify/tell`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        'tell' : signUpData.tell
+      },
+      { withCredentials: true }
     );
     return response;
   };
@@ -90,9 +78,15 @@ function SignUp() {
   };
 
   const NickCheckHandler = async () => {
+    console.log(signUpData.name)
     const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/name`,
-      signUpData.tell
+      `/sso/verify/name`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        'name' : signUpData.name
+      }
     );
     return response;
   };
@@ -102,33 +96,32 @@ function SignUp() {
       .then((e) => console.log(e))
       .catch((e) => console.log(e));
   };
-
-  // const ServerConnectVerify = async () => {
-  //   const SignUpVerify = {
-  //     email: signupVerify.email,
-  //     tell: signupVerify.tell,
-  //   };
-
-  //   try {
-  //     const { email } = await axios.post(
-  // `${CONFIG.SERVER}/sso/verify/email`,
-  //       SignUpVerify.email
-  //     );
-
-  //     const { tell } = await axios.post(
-  // `${CONFIG.SERVER}/sso/verify/tell`,
-  //       SignUpVerify.tell
-  //     )
-
-  //     console.log("성공");
-  //   } catch (e) {
-  //     console.log("실패");
-  //   }
-
-  //   useEffect(() => {
-  //     ServerConnectVerify();
-  //   }, []);
-  // };
+  const SubmitHandler = async () => {
+    console.log(signUpData)
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/sign-up`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        'name' : signUpData.name,
+        'id' : signUpData.id,
+        'email' : signUpData.email,
+        'emailVerifyCode' : signUpData.emailVerifyCode,
+        'password' : signUpData.password,
+        'tell' : signUpData.tell,
+        'tellVerifyCode' : signUpData.tellVerifyCode
+      },
+      { withCredentials: true }
+    );
+    return response;
+  }
+  const Submit = () => {
+    SubmitHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e))
+  }
+  
 
   return (
     <>
@@ -141,13 +134,13 @@ function SignUp() {
       <S.title3>입니다!</S.title3>
       <S.nickcheck onClick={NickCheck}>중복 확인</S.nickcheck>
 
-      <S.nickbox
+      {/* <S.nickbox
         placeholder="닉네임"
         type="name"
         id="name"
         name="name"
         onChange={handleSignupChange}
-      />
+      /> */}
       <S.idbox
         placeholder="아이디를 입력해주세요"
         type="id"
@@ -155,15 +148,13 @@ function SignUp() {
         name="id"
         onChange={handleSignupChange}
       />
-      <S.emailbox
-        placeholder="이메일을 입력해주세요"
-        type="email"
-        id="email"
-        name="email"
-        onChange={() => {}} //handleSignupChangeVerify
-      />
       <S.emailcheck >인증하기</S.emailcheck>
-      <S.emailicertinum placeholder="인증 번호" />
+      <S.emailicertinum placeholder="인증 번호" 
+        type="emailVerifyCode"
+        id="emailVerifyCode"
+        name="emailVerifyCode"
+        onChange={handleSignupChange}
+      />
       <S.emailpass>확인</S.emailpass>
       <S.passwordbox placeholder="비밀번호를 입력해주세요" />
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" />
@@ -171,9 +162,9 @@ function SignUp() {
 
       <S.nickbox
         placeholder="닉네임"
-        type="id"
-        id="id"
-        name="id"
+        type="name"
+        id="name"
+        name="name"
         onChange={handleSignupChange}
       />
       <S.emailbox
@@ -200,11 +191,17 @@ function SignUp() {
       />
 
       <S.numcertifi onClick={TellCheck}>인증하기</S.numcertifi>
-      <S.phonenumbox placeholder="전화번호를 입력해주세요" />
-      <S.phonecertinum placeholder="인증 번호" />
+{/* ##      <S.phonenumbox placeholder="전화번호를 입력해주세요" /> */}
+      <S.phonecertinum 
+          placeholder="인증 번호" 
+          type="tellVerifyCode"
+          id="tellVerifyCode"
+          name="tellVerifyCode"
+          onChange={handleSignupChange}
+        />
       <S.phonepass>확인</S.phonepass>
 
-      <S.signup>회원가입</S.signup>
+      <S.signup onClick={Submit}>회원가입</S.signup>
     </>
   );
 }
