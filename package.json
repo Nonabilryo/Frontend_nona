@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+
   }
+
+  ,
+  "proxy": "http://10.80.161.243:8080" 
 }

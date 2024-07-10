@@ -150,7 +150,7 @@ export const emailicertinum = styled.input`
     position: absolute;
     margin-left: 1.6vw;
   }
-  width: 27vw;
+  width: 37vw;
   height: 4vw;
   position: absolute;
   background: white;
@@ -160,21 +160,7 @@ export const emailicertinum = styled.input`
   margin-left: 53.3vw;
   position: absolute;
 `;
-export const emailpass = styled.button`
-  width: 9vw;
-  height: 4vw;
-  background: #3ddc63;
-  border-radius: 0.8vw;
-  border: none;
-  margin-left: 82vw;
-  margin-top: 27.3vw;
-  text-align: center;
-  color: white;
-  font-size: 1.5vw;
-  font-family: Pretendard;
-  position: absolute;
-  font-weight: 600;
-`;
+
 export const passwordbox = styled.input`
   &::placeholder {
     width: 12.7vw;
@@ -258,7 +244,7 @@ export const phonecertinum = styled.input`
     position: absolute;
     margin-left: 1.6vw;
   }
-  width: 27vw;
+  width: 37vw;
   height: 4vw;
   position: absolute;
   background: white;

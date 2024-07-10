@@ -55,6 +55,98 @@ function SignUp() {
     ServerConnect();
   }, []);
 
+  const EmailCheckHandler = async () => {
+    try {
+      const response = await axios.post(`${CONFIG.SERVER}/sso/verify/email`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        email: signUpData.email,
+      });
+      alert("사용할 수 있는 이메일입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("사용할 수 없는 이메일입니다.");
+      }
+    }
+  };
+
+  const EmailCheck = () => {
+    EmailCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
+  const TellCheckHandler = async () => {
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/verify/tell`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        tell: signUpData.tell,
+      },
+      { withCredentials: true }
+    );
+    return response;
+  };
+
+  const TellCheck = () => {
+    TellCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
+  const NickCheckHandler = async () => {
+    try {
+      const response = await axios.post(`${CONFIG.SERVER}/sso/verify/tell`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        name: signUpData.name,
+      });
+      console.log(response);
+      alert("사용 가능한 닉네임입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("사용할 수 없는 닉네임입니다.");
+      }
+    }
+  };
+
+  const NickCheck = () => {
+    NickCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+  const SubmitHandler = async () => {
+    console.log(signUpData);
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/sign-up`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        name: signUpData.name,
+        id: signUpData.id,
+        email: signUpData.email,
+        emailVerifyCode: signUpData.emailVerifyCode,
+        password: signUpData.password,
+        tell: signUpData.tell,
+        tellVerifyCode: signUpData.tellVerifyCode,
+      },
+      { withCredentials: true }
+    );
+    return response;
+  };
+  const Submit = () => {
+    SubmitHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
   return (
     <>
       <S.back />
@@ -65,14 +157,30 @@ function SignUp() {
       <S.title3>입니다!</S.title3>
       <S.nickcheck>중복 확인</S.nickcheck>
 
-      <S.nickbox placeholder="닉네임" />
-      <S.idbox placeholder="아이디를 입력해주세요" />
-      <S.emailbox placeholder="이메일을 입력해주세요" />
+      {/* <S.nickbox
+        placeholder="닉네임"
+        type="name"
+        id="name"
+        name="name"
+        onChange={handleSignupChange}
+      /> */}
+      <S.idbox
+        placeholder="아이디를 입력해주세요"
+        type="id"
+        id="id"
+        name="id"
+        onChange={handleSignupChange}
+      />
       <S.emailcheck>인증하기</S.emailcheck>
-      <S.emailicertinum placeholder="인증 번호" />
-      <S.emailpass>확인</S.emailpass>
-      <S.passwordbox placeholder="비밀번호를 입력해주세요" />
-      <S.passcheck placeholder="비밀번호를 다시 입력해주세요" />
+      <S.emailicertinum
+        placeholder="인증 번호"
+        type="emailVerifyCode"
+        id="emailVerifyCode"
+        name="emailVerifyCode"
+        onChange={handleSignupChange}
+      />
+      <S.passwordbox type="password" placeholder="비밀번호를 입력해주세요" />
+      <S.passcheck type="password" placeholder="비밀번호를 다시 입력해주세요" />
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
 
       <S.nickbox
@@ -102,10 +210,15 @@ function SignUp() {
         name="tell"
         onChange={handleSignupChange}/>
 
-      <S.numcertifi>인증하기</S.numcertifi>
-      <S.phonenumbox placeholder="전화번호를 입력해주세요" />
-      <S.phonecertinum placeholder="인증 번호" />
-      <S.phonepass>확인</S.phonepass>
+      <S.numcertifi onClick={TellCheck}>인증하기</S.numcertifi>
+      {/* ##      <S.phonenumbox placeholder="전화번호를 입력해주세요" /> */}
+      <S.phonecertinum
+        placeholder="인증 번호"
+        type="tellVerifyCode"
+        id="tellVerifyCode"
+        name="tellVerifyCode"
+        onChange={handleSignupChange}
+      />
 
 
 

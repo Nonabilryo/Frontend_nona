@@ -15,9 +15,12 @@ export const logo = styled.img`
 
 export const search = styled.input`
   width: 50vw;
+  height: 4vw;
   height: 3.5vw;
   background: white;
   border-radius: 0.7vw;
+  border: 0.3vw #3bd15f solid;
+  margin-left: 17vw;
   border: 0.2vw #3bd15f solid;
   margin-left: 18vw;
   margin-top: 3.8vw;
@@ -25,6 +28,9 @@ export const search = styled.input`
 `;
 
 export const mypage = styled.img`
+
+  width: 3vw;
+  height: 3.5;
   width: 2.7vw;
   height: 2.7vw;
   margin-left: 76vw;
@@ -33,6 +39,9 @@ export const mypage = styled.img`
 `;
 
 export const chat = styled.img`
+
+  width: 3vw;
+  height: 3.5;
   width: 2.7vw;
   height: 2.7vw;
   margin-left: 84vw;
@@ -52,12 +61,19 @@ export const line1 = styled.img`
   width: 0.2vw;
   height: 2.8vw;
   margin-left: 81.4vw;
+  width: 3vw;
+  height: 3.5;
+  width: 2.7vw;
+  height: 2.7vw;
+  margin-left: 92vw;
+  margin-top: 4.3vw;
   margin-top: 4.5vw;
   position: absolute;
 `;
 
 export const line2 = styled.img`
   width: 0.2vw;
+
   height: 2.8vw;
   margin-left: 89.2vw;
   margin-top: 4.5vw;
@@ -101,3 +117,51 @@ export const recommend = styled.div`
 `;
 
 
+
+// 가인 코드
+
+export const articleContainer = styled.div`
+  width: 90%;
+  margin: auto;
+`;
+
+export const line = styled.ol`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+export const article = styled.li`
+  width: 18%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 8px;
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+export const image = styled.img`
+  width: 100%;
+  height: auto;
+`;
+// todo 밑에 이거 수정
+export const button = styled.button`
+  width: 100%;
+  height: auto;
+`;
+// export const nav = styled.img`
+//   width: 50px;
+//   height: 50px;
+//   margin-left: 10px;
+// `;
+// export const navContainer = styled.div`
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-end;
+// `;
