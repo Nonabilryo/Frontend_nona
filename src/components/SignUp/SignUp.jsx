@@ -55,6 +55,7 @@ function SignUp() {
         alert('사용할 수 없는 이메일입니다.');
       }
   }
+
   };
 
   const EmailCheck = () => {
@@ -72,6 +73,9 @@ function SignUp() {
         },
         'tell' : signUpData.tell
       },
+
+      { withCredentials: true }
+
     );
     return response;
   };
@@ -101,6 +105,7 @@ function SignUp() {
         alert('사용할 수 없는 닉네임입니다.');
       } 
     }
+
   };
   
 
@@ -112,7 +117,8 @@ function SignUp() {
   const SubmitHandler = async () => {
     console.log(signUpData)
     const response = await axios.post(
-      `/sso/sign-up`,
+
+      `${CONFIG.SERVER}/sso/sign-up`,
       {
         headers: {
           'Content-Type': 'application/json'
@@ -125,7 +131,9 @@ function SignUp() {
         'tell' : signUpData.tell,
         'tellVerifyCode' : signUpData.tellVerifyCode
       },
-    )
+
+      { withCredentials: true }
+    );
     return response;
   }
   const Submit = () => {
