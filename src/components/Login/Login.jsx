@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as L from "../../style/Login.style";
 import googlelogo from "../../assets/img/googlelogo.png";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
+
+
 
 const Login = ({setIsLogin}) => {
   const navigate = useNavigate();
@@ -98,7 +100,7 @@ const Login = ({setIsLogin}) => {
       <L.login type="submit" onClick={Submit}>
         로그인
       </L.login>
-      <L.signup>노나빌려 가입하러 가기</L.signup>
+      <L.signup onClick={() => navigate("/signup")}>노나빌려 가입하러 가기</L.signup>
       <L.divideline></L.divideline>
       <L.searchid>아이디 찾기</L.searchid>
       <L.searchpassword>비밀번호 찾기</L.searchpassword>
