@@ -38,17 +38,24 @@ function SignUp() {
   }, []);
 
   const EmailCheckHandler = async () => {
-    const response = await axios.post(
-      `/sso/verify/email`,
-      {
-        headers: {
-          'Content-Type': 'application/json'
+    try {
+      const response = await axios.post(
+        `/sso/verify/email`,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          'email' : signUpData.email
         },
-        'email' : signUpData.email
-      },
-      { withCredentials: true }
-    );
-    return response;
+      );
+      alert("사용할 수 있는 이메일입니다.")
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert('사용할 수 없는 이메일입니다.');
+      }
+  }
+
   };
 
   const EmailCheck = () => {
@@ -66,7 +73,9 @@ function SignUp() {
         },
         'tell' : signUpData.tell
       },
+
       { withCredentials: true }
+
     );
     return response;
   };
@@ -78,18 +87,27 @@ function SignUp() {
   };
 
   const NickCheckHandler = async () => {
-    console.log(signUpData.name)
-    const response = await axios.post(
-      `/sso/verify/name`,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        'name' : signUpData.name
-      }
-    );
-    return response;
+    try {
+      const response = await axios.post(
+        `${CONFIG.SERVER}/sso/verify/name`,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          'name': signUpData.name
+        }
+      );
+      console.log(response);
+      alert('가능한 닉네임입니다.');
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert('사용할 수 없는 닉네임입니다.');
+      } 
+    }
+
   };
+  
 
   const NickCheck = () => {
     NickCheckHandler()
@@ -99,6 +117,7 @@ function SignUp() {
   const SubmitHandler = async () => {
     console.log(signUpData)
     const response = await axios.post(
+
       `${CONFIG.SERVER}/sso/sign-up`,
       {
         headers: {
@@ -112,6 +131,7 @@ function SignUp() {
         'tell' : signUpData.tell,
         'tellVerifyCode' : signUpData.tellVerifyCode
       },
+
       { withCredentials: true }
     );
     return response;
@@ -156,8 +176,8 @@ function SignUp() {
         onChange={handleSignupChange}
       />
       <S.emailpass>확인</S.emailpass>
-      <S.passwordbox placeholder="비밀번호를 입력해주세요" />
-      <S.passcheck placeholder="비밀번호를 다시 입력해주세요" />
+      <S.passwordbox placeholder="비밀번호를 입력해주세요" type="password"/>
+      <S.passcheck placeholder="비밀번호를 다시 입력해주세요"type="password" />
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
 
       <S.nickbox
@@ -174,7 +194,7 @@ function SignUp() {
         name="email"
         onChange={handleSignupChange}
       />
-      <S.emailcheck onClick={EmailCheck}>중복 확인</S.emailcheck>
+      <S.emailcheck onClick={EmailCheck}>인증하기</S.emailcheck>
       <S.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
