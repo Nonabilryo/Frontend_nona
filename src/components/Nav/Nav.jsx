@@ -25,6 +25,10 @@ const Nav = ({ isLogin }) => {
     localStorage.setItem("refreshToken", null);
     navigate("/main");
   };
+
+  const InfoHandler = () => {
+    navigate("/mypage");
+  };
   return (
     <>
       <N.navContainer>
@@ -34,7 +38,7 @@ const Nav = ({ isLogin }) => {
           placeholder="찾으시는 상품을 검색하세요"></N.search>
         {isLogin ? (
           <>
-            <N.info src={myInFo}></N.info>
+            <N.info src={myInFo} onClick={InfoHandler} ></N.info>
             <N.chat src={chat}></N.chat>
             <N.comm src={comunity}></N.comm>
 

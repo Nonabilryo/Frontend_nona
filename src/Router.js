@@ -9,6 +9,7 @@ import isAuth from "./util/isAuth";
 import Nav from "./components/Nav/Nav";
 import PostArticle from "./components/PostArticle/PostArticle";
 import DetailPage from "./components/Detail/DetailPage";
+import MyPage from "./components/MyPage/MyPage"
 
 function Router() {
   const [isLogin, setIsLogin] = useState(null);
@@ -32,6 +33,7 @@ function Router() {
         <Route exact path="/main" element={<Main/>} />
         <Route exact path="/article/post" element={<PostArticle />} />
         <Route exact path="/detail" element={<DetailPage />} />
+        <Route exact path="/mypage" element={<MyPage />} />
         <Route path="/article/:id" element={<ArticleInfo />}  />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route exact path="/login" element={isLogin ? <Navigate to="/" /> : <Login setIsLogin={setIsLogin}/>} />
