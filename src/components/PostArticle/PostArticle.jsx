@@ -3,6 +3,9 @@ import { useCallback, useState, useEffect } from "react";
 import CONFIG from "../../config/config.json";
 import { useNavigate } from "react-router";
 
+import * as P from "../../style/PostArticle";
+import "../../style/PostArticle";
+
 const PostArticle = () => {
     const navigate = useNavigate();
     const [postData, setPostData] = useState({
@@ -60,30 +63,21 @@ const PostArticle = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column" }}>
-            <label htmlFor="title">제목</label>
-            <input name="title" id="title" type="text" onChange={handlePostChange} />
+            <P.title htmlFor="title">제목</P.title>
+            <P.tiInput name="title" id="title" type="text" onChange={handlePostChange} />
 
-            <label htmlFor="category">카테고리</label>
-            <input name="category" id="category" type="text" onChange={handlePostChange} />
+            <P.price htmlFor="price">가격</P.price>
+            <P.priInput name="price" id="price" type="number" onChange={handlePostChange} />
 
-            <label htmlFor="description">설명</label>
-            <textarea name="description" id="description" onChange={handlePostChange}></textarea>
+            <P.desc htmlFor="description">설명</P.desc>
+            <P.descInput name="description" id="description" onChange={handlePostChange}></P.descInput>
 
-            <label htmlFor="price">가격</label>
-            <input name="price" id="price" type="number" onChange={handlePostChange} />
+            
 
-            <label htmlFor="rentalType">렌탈타입</label>
-            <select name="rentalType" id="rentalType" onChange={handlePostChange} defaultValue="0">
-                <option value="0">Year</option>
-                <option value="1">Month</option>
-                <option value="2">Day</option>
-                <option value="3">Hour</option>
-            </select>
+            <P.img htmlFor="images">이미지</P.img>
+            <P.imgInput name="images" id="images" type="file" accept="image/png, image/jpeg" onChange={handleFileChange} multiple />
 
-            <label htmlFor="images">이미지</label>
-            <input name="images" id="images" type="file" accept="image/png, image/jpeg" onChange={handleFileChange} multiple />
-
-            <button type="submit" onClick={Submit}>올리기</button>
+            <P.sub type="submit" onClick={Submit}>게시</P.sub>
         </div>
     );
 };

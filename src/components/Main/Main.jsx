@@ -9,7 +9,7 @@ import comunity from "../../assets/img/comunity.png";
 import chat from "../../assets/img/chat.png";
 import isLogin from "../../util/isAuth";
 import logo from "../../assets/img/logo.png";
-
+import data from "./DemmyArticle";
 
 const Main = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -32,9 +32,17 @@ const Main = ({ isLogin }) => {
 
   const ServerConnect = async (page) => {
     // todo ServerConnect 함수명 바꾸기
-    const response = await axios.get(`${CONFIG.SERVER}/article?page=${page}`, {
-      withCredentials: true,
-    });
+    // console.log("-----------------------");
+    const response = await axios.get(
+      `${CONFIG.SERVER}/article/page/${page}`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+    // const response = { data: JSON.parse(data) };
+    // console.log(response);
+
     setArticlesData((prevData) => ({
       articles: [...prevData.articles, ...response.data.data.content],
       totalPage: response.data.data.totalPages,
@@ -67,13 +75,13 @@ const Main = ({ isLogin }) => {
   const renderRentalType = (rentalType) => {
     switch (rentalType) {
       case "YEAR":
-        return "1년";
+        return "년";
       case "MONTH":
-        return "1개월";
+        return "개월";
       case "DAY":
-        return "1일";
+        return "일";
       case "HOUR":
-        return "1시간";
+        return "시간";
       default:
         return rentalType;
     }
@@ -90,24 +98,7 @@ const Main = ({ isLogin }) => {
           </>
       </M.navContainer> */}
 
-      <navContainer>
-        <navImage src={logo}></navImage>
-        <input type="text" placeholder="검색해라"></input>
-        {isLogin ? (
-          <>
-            <navImage src={logo}></navImage>
-            <p onClick={PostArticleHandler}>글쓰기</p>
-          </>
-        ) : (
-          <>
-            <p onClick={LoginHandler}>로그인해라</p>
-            <p onClick={SignUpHandler}>회원가입해라</p>
-          </>
-        )}
-      </navContainer>
-
       <M.articleContainer>
-        상품추천
         {ChunkArray(articlesData.articles, 5).map((chunk, chunkIndex) => (
           <M.line key={chunkIndex}>
             {" "}
@@ -119,9 +110,9 @@ const Main = ({ isLogin }) => {
                 name="article"
                 onClick={ArticleClickHandler}>
                 <M.image src={article.image.url} alt="Image" />
-                <h2>{article.title}</h2>
-                <p>가격: {article.price}원</p>
-                <p>{renderRentalType(article.rentalType)}</p>
+                <M.title>{article.title}</M.title>
+                <M.price>{article.price}원</M.price>
+                <M.unitt>{renderRentalType(article.rentalType)}</M.unitt>
               </M.article>
             ))}
           </M.line>

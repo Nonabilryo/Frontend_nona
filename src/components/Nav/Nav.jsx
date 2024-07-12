@@ -17,23 +17,38 @@ const Nav = ({ isLogin }) => {
   const PostArticleHandler = () => {
     navigate("/article/post");
   };
+  const MainHandler = () => {
+    navigate("/main");
+  };
+  const LogoutHandler = () => {
+    localStorage.setItem("accessToken", null);
+    localStorage.setItem("refreshToken", null);
+    navigate("/main");
+  };
   return (
     <>
       <N.navContainer>
-        <N.navImage src={logo}></N.navImage>
-        <input type="text" placeholder="검색해라"></input>
+        <N.navImage src={logo} onClick={MainHandler}></N.navImage>
+        <N.search
+          type="text"
+          placeholder="찾으시는 상품을 검색하세요"></N.search>
         {isLogin ? (
           <>
-            <N.navImage src={logo}></N.navImage>
-            <N.p onClick={PostArticleHandler}>글쓰기</N.p>
+            <N.info src={myInFo}></N.info>
+            <N.chat src={chat}></N.chat>
+            <N.comm src={comunity}></N.comm>
+
+            <N.write onClick={PostArticleHandler}>글쓰기</N.write>
+            <N.logout onClick={LogoutHandler}>로그아웃</N.logout>
           </>
         ) : (
           <>
-            <N.p onClick={LoginHandler}>로그인해라</N.p>
-            <N.p onClick={SignUpHandler}>회원가입해라</N.p>
+            <N.login onClick={LoginHandler}>로그인</N.login>
+            <N.signup onClick={SignUpHandler}>회원가입</N.signup>
           </>
         )}
       </N.navContainer>
+      {isLogin ? <></> : <></>}
     </>
   );
 };

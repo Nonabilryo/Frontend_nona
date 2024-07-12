@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import isAuth from "./util/isAuth";
 import Nav from "./components/Nav/Nav";
 import PostArticle from "./components/PostArticle/PostArticle";
+import DetailPage from "./components/Detail/DetailPage";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(null);
@@ -28,8 +29,9 @@ function Router() {
     <BrowserRouter>
       <Nav isLogin={isLogin}/>
       <Routes>
-        <Route exact path="/" element={<Main/>} />
+        <Route exact path="/main" element={<Main/>} />
         <Route exact path="/article/post" element={<PostArticle />} />
+        <Route exact path="/detail" element={<DetailPage />} />
         <Route path="/article/:id" element={<ArticleInfo />}  />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route exact path="/login" element={isLogin ? <Navigate to="/" /> : <Login setIsLogin={setIsLogin}/>} />

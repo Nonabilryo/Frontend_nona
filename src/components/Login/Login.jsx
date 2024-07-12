@@ -24,23 +24,23 @@ const Login = ({setIsLogin}) => {
     [setLoginData]
   );
 
-  // const ServerConnect = async () => {
-  //   const LoginData = {
-  //     id: loginData.id,
-  //     password: loginData.password,
-  //   };
+  const ServerConnect = async () => {
+    const LoginData = {
+      id: loginData.id,
+      password: loginData.password,
+    };
 
-    // try {
-    //   const { data } = await axios.post(
-    //     `${CONFIG.SERVER}/sso/login`,
-    //     LoginData
-    //   );
+    try {
+      const { data } = await axios.post(
+        `${CONFIG.SERVER}/sso/login`,
+        LoginData
+      );
 
-    //   console.log("성공");
-    // } catch (e) {
-    //   console.log("실패");
-    // }
-  // };
+      console.log("성공");
+    } catch (e) {
+      alert("실패");
+    }
+  };
   const SubmitHandler = async () => {
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/login`,
@@ -58,7 +58,10 @@ const Login = ({setIsLogin}) => {
       localStorage.setItem('accessToken', accessToken);  // todo 쿠키로 수정
       localStorage.setItem('refreshToken', refreshToken);  // todo 쿠키로 수정
       setIsLogin(true)
-      navigate("/login/success");
+      console.log("---------------------")
+      navigate("/main");
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
     }
     return response;
   }
@@ -74,6 +77,7 @@ const Login = ({setIsLogin}) => {
 
   return (
     <>
+      <L.cover/>
       <L.back></L.back>
       <L.cart img src={cart} alt="cart" />
       <L.title1>어서오세요,</L.title1>

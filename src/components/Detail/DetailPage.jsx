@@ -11,16 +11,10 @@ const DetailPage = () => {
         <D.PImg src={PImg} alt="error" />
         <D.ImgUnder>
           <D.User>
-            <img src={userImg} alt="error" style={{ width: "3.5vw" }} />
-            <div
-              style={{
-                fontSize: "22px",
-                fontFamily: "pretendard",
-                fontWeight: "500",
-              }}
-            >
-              user
-            </div>
+            <D.usImg src={userImg} alt="error"  />
+            <D.us>
+              별빛달빛
+            </D.us>
           </D.User>
           <D.Map>
             <img src={mapImg} alt="error" style={{ width: "2vw" }} />
