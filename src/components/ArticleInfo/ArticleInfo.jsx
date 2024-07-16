@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
-import "../../style/Main.style";
+import "../../style/ArticleInfo";
+import * as A from "../../style/ArticleInfo"
+
 import CONFIG from "../../config/config.json";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { article } from '../../style/Main.style';
+import userprofile from "../../assets/img/userprofile.png"
 
 
 
@@ -74,7 +77,7 @@ const ArticleInfo = () => {
                             <img 
                                 src={image.url} 
                                 alt={`Slide ${index}`} 
-                                style={{ width: "900px", height: "300px"}} 
+                                style={{ width: "50vw", height: "300px"}} 
                             />
                         </div>
                     ))}
@@ -86,13 +89,10 @@ const ArticleInfo = () => {
                 <p>날짜: {articleData.createdAt}</p>
             </div>
             <div>
-                <img src={writerData.imageUrl} alt="기본프로필"></img>  
+                <img src={userprofile} alt="기본프로필"></img>  
                 <p>올린사람: {writerData.name}</p>
             </div>
-            <div>
-                좋아요:
-                실어요:
-            </div>
+
         </div>
     );
 };
