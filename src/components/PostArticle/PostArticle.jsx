@@ -82,7 +82,6 @@ const PostArticle = () => {
         onChange={handlePostChange}
       />
 
-<<<<<<< Updated upstream
       <P.desc htmlFor="description">설명</P.desc>
       <P.descInput
         name="description"
@@ -98,17 +97,6 @@ const PostArticle = () => {
         onChange={handleFileChange}
         multiple
       />
-=======
-            <P.cate htmlFor="category">카테고리</P.cate>
-            <P.cateInput name="category" id="category" type="text" onChange={handlePostChange} />
-
-            <P.desc htmlFor="description">설명</P.desc>
-            <P.descInput name="description" id="description" onChange={handlePostChange}></P.descInput>
-
-            <input name="rentalType" value="1" hidden></input>
-
-            
->>>>>>> Stashed changes
 
       <P.sub type="submit" onClick={Submit}>
         게시
