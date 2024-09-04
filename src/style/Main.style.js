@@ -28,7 +28,6 @@ export const search = styled.input`
 `;
 
 export const mypage = styled.img`
-
   width: 3vw;
   height: 3.5;
   width: 2.7vw;
@@ -39,7 +38,6 @@ export const mypage = styled.img`
 `;
 
 export const chat = styled.img`
-
   width: 3vw;
   height: 3.5;
   width: 2.7vw;
@@ -116,10 +114,6 @@ export const recommend = styled.div`
   margin-left: 5vw;
 `;
 
-
-
-// 가인 코드
-
 export const articleContainer = styled.div`
   width: 90%;
   margin: auto;
@@ -146,7 +140,20 @@ export const article = styled.li`
 export const image = styled.img`
   width: 100%;
   height: auto;
+  height: 23vw;
+  box-sizing: border-box;
+  border: 1px solid #eeeeee;
+  border-top-right-radius: 1vw;
+  border-top-left-radius: 1vw;
+  margin-left: 1.3vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10vw;
+  margin-bottom: -4vw;
+  /* width: 16vw;
+  height: 13vw; */
 `;
+
 // todo 밑에 이거 수정
 export const button = styled.button`
   width: 100%;
@@ -165,3 +172,28 @@ export const button = styled.button`
 //   flex-direction: row;
 //   align-items: flex-end;
 // `;
+// `;
+
+export const title = styled.div`
+  position: absolute;
+  font-family: pretendard-semibold;
+  font-size: 1.2vw;
+  margin-top: 14vw;
+  margin-left: 1vw;
+  width: 15%;
+`;
+
+export const price = styled.div`
+  position: absolute;
+  font-family: pretendard-bold;
+  font-size: 1.5vw;
+  margin-top: 18vw;
+  margin-left: 4vw;
+`;
+
+export const unitt = styled.div`
+  position: absolute;
+  font-family: pretendard-regular;
+  margin-top: 18.3vw;
+  margin-left: 1vw;
+`;
