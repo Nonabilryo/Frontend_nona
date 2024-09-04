@@ -1,7 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as S from "../../style/SignUp.style";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
+import CONFIG from "../../config/config.json";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [SignUpData, setSignUpData] = useState({
