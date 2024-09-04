@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as L from "../../style/Login.style";
-import googlelogo from "../../assets/img/googlelogo.png";
+import googlelogo from "../../assets/img/google_logo.png";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
