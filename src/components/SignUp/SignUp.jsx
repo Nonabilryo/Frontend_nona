@@ -6,7 +6,8 @@ import CONFIG from "../../config/config.json";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
-  const [SignUpData, setSignUpData] = useState({
+  const navigate = useNavigate();
+  const [signUpData, setSignUpData] = useState({
     name: "",
     id: "",
     password: "",
@@ -20,50 +21,159 @@ function SignUp() {
   const handleSignupChange = useCallback(
     (e) => {
       const { value, name } = e.target;
-      setLoginData((prev) => ({ ...prev, [name]: value }));
+      setSignUpData((prev) => ({ ...prev, [name]: value }));
     },
     [setSignUpData]
   );
 
   const ServerConnect = async () => {
     const SignUpData = {
-      name: SignUpData.name,
-      id: SignUpData.id,
-      password: SignUpData.password,
       email: SignUpData.email,
       tell: SignUpData.tell,
-      adress: SignUpData.adress,
       emailVerifyCode: SignUpData.emailVerifyCode,
       tellVerifyCode: SignUpData.tellVerifyCode,
     };
+  };
 
+  useEffect(() => {
+    ServerConnect();
+  }, []);
+
+  const EmailCheckHandler = async () => {
     try {
       const { data } = await axios.post(
         `${CONFIG.SERVER}/sso/sign-up`,
         SignUpData
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          email: signUpData.email,
+        },
+        { withCredentials: true }
       );
+      alert("사용할 수 있는 이메일입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("사용할 수 없는 이메일입니다.");
+      }
+    }
+  };
 
       console.log("성공");
     } catch (e) {
       console.log("실패");
+  const EmailCheck = () => {
+    EmailCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
+  const TellCheckHandler = async () => {
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/verify/tell`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        tell: signUpData.tell,
+      },
+      { withCredentials: true }
+    );
+    return response;
+  };
+
+  const TellCheck = () => {
+    TellCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
+  const NickCheckHandler = async () => {
+    try {
+      const response = await axios.post(
+        `${CONFIG.SERVER}/sso/verify/name`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          name: signUpData.name,
+        },
+        { withCredentials: true }
+      );
+      console.log(response);
+      alert("가능한 닉네임입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("사용할 수 없는 닉네임입니다.");
+      }
     }
   };
 
   useEffect(() => {
     ServerConnect();
   }, []);
+  const NickCheck = () => {
+    NickCheckHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+  const SubmitHandler = async () => {
+    console.log(signUpData);
+    const response = await axios.post(
+      `${CONFIG.SERVER}/sso/sign-up`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        name: signUpData.name,
+        id: signUpData.id,
+        email: signUpData.email,
+        emailVerifyCode: signUpData.emailVerifyCode,
+        password: signUpData.password,
+        tell: signUpData.tell,
+        tellVerifyCode: signUpData.tellVerifyCode,
+      },
+      { withCredentials: true }
+    );
+
+    console.log("---------------------");
+    navigate("/login");
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+
+    return response;
+  };
+  const Submit = () => {
+    SubmitHandler()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
   return (
     <>
+      <S.cover />
       <S.back />
       <S.cart img src={cart} alt="cart" />
 
       <S.title1>환영합니다,</S.title1>
       <S.title2>노나빌려</S.title2>
       <S.title3>입니다!</S.title3>
+      <S.nickcheck onClick={NickCheck}>중복 확인</S.nickcheck>
 
       <S.nickcheck>중복 확인</S.nickcheck>
       <S.nickbox
+      {/* <S.nickbox
         placeholder="닉네임"
+        type="name"
+        id="name"
+        name="name"
+        onChange={handleSignupChange}
+      /> */}
+      <S.idbox
+        placeholder="아이디를 입력해주세요"
         type="id"
         id="id"
         name="id"
@@ -113,5 +223,4 @@ function SignUp() {
     </>
   );
 }
-
 export default SignUp;
