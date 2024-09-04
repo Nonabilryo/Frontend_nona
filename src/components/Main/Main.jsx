@@ -34,7 +34,7 @@ const Main = ({ isLogin }) => {
     // todo ServerConnect 함수명 바꾸기
     // console.log("-----------------------");
     const response = await axios.get(
-      `${CONFIG.SERVER}/article/page/${page}`,
+      `/article/page/${page}`,
       {},
       {
         withCredentials: true,

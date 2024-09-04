@@ -38,7 +38,7 @@ const ArticleInfo = () => {
     )
 
     const fetchArticleData = async () => {
-        const response = await axios.get(`${CONFIG.SERVER}/article/${location.pathname.split('/')[2]}`);
+        const response = await axios.get(`/article/${location.pathname.split('/')[2]}`);
         setArticleData({
             title: response.data.data.title,
             images: response.data.data.images,
@@ -50,7 +50,7 @@ const ArticleInfo = () => {
             createdAt: response.data.data.createdAt
         });
         const writerDataResponse = await await axios.get(
-            `${CONFIG.SERVER}/user/${response.data.data.writer}`,
+            `/user/${response.data.data.writer}`,
           );
         setWriterData(writerDataResponse.data.data)
     };

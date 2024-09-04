@@ -84,7 +84,7 @@ const Login = ({setIsLogin}) => {
       <L.title2>노나빌려</L.title2>
       <L.title3>입니다!</L.title3>
       <L.emailbox
-        placeholder="이메일을 입력해주세요"
+        placeholder="아이디를 입력해주세요"
         type="email"
         id="id"
         name="id"
