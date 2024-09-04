@@ -28,10 +28,10 @@ function SignUp() {
 
   const ServerConnect = async () => {
     const SignUpData = {
-      email: SignUpData.email,
-      tell: SignUpData.tell,
-      emailVerifyCode: SignUpData.emailVerifyCode,
-      tellVerifyCode: SignUpData.tellVerifyCode,
+      name: signUpData.name,
+      id: signUpData.id,
+      password: signUpData.password,
+      adress: signUpData.adress,
     };
   };
 
@@ -41,9 +41,8 @@ function SignUp() {
 
   const EmailCheckHandler = async () => {
     try {
-      const { data } = await axios.post(
-        `${CONFIG.SERVER}/sso/sign-up`,
-        SignUpData
+      const response = await axios.post(
+        `${CONFIG.SERVER}/sso/verify/email`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -61,9 +60,6 @@ function SignUp() {
     }
   };
 
-      console.log("성공");
-    } catch (e) {
-      console.log("실패");
   const EmailCheck = () => {
     EmailCheckHandler()
       .then((e) => console.log(e))
@@ -112,9 +108,6 @@ function SignUp() {
     }
   };
 
-  useEffect(() => {
-    ServerConnect();
-  }, []);
   const NickCheck = () => {
     NickCheckHandler()
       .then((e) => console.log(e))
@@ -163,8 +156,6 @@ function SignUp() {
       <S.title3>입니다!</S.title3>
       <S.nickcheck onClick={NickCheck}>중복 확인</S.nickcheck>
 
-      <S.nickcheck>중복 확인</S.nickcheck>
-      <S.nickbox
       {/* <S.nickbox
         placeholder="닉네임"
         type="name"
@@ -179,8 +170,22 @@ function SignUp() {
         name="id"
         onChange={handleSignupChange}
       />
-      <S.namebox
-        placeholder="이름을 입력해주세요"
+      <S.emailcheck>인증하기</S.emailcheck>
+      <S.emailicertinum
+        placeholder="인증 번호"
+        type="emailVerifyCode"
+        id="emailVerifyCode"
+        name="emailVerifyCode"
+        onChange={handleSignupChange}
+      />
+
+      <S.emailpass>확인</S.emailpass>
+      <S.passwordbox placeholder="비밀번호를 입력해주세요" type="password" />
+      <S.passcheck placeholder="비밀번호를 다시 입력해주세요" type="password" />
+      <S.phonenumbox placeholder="전화번호를 입력해주세요" />
+
+      <S.nickbox
+        placeholder="닉네임"
         type="name"
         id="name"
         name="name"
@@ -193,19 +198,12 @@ function SignUp() {
         name="email"
         onChange={handleSignupChange}
       />
-      <S.emailcheck>중복 확인</S.emailcheck>
+      <S.emailcheck onClick={EmailCheck}>인증하기</S.emailcheck>
       <S.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
         id="password"
         name="password"
-        onChange={handleSignupChange}
-      />
-      <S.addressbox
-        placeholder="주소를 입력해주세요"
-        type="adress"
-        id="adress"
-        name="adress"
         onChange={handleSignupChange}
       />
       <S.phonenumbox
@@ -215,11 +213,20 @@ function SignUp() {
         name="tell"
         onChange={handleSignupChange}
       />
-      <S.numcertifi>인증하기</S.numcertifi>
-      <S.phonecertinum placeholder="인증 번호" />
+
+      <S.numcertifi onClick={TellCheck}>인증하기</S.numcertifi>
+      {/* ##      <S.phonenumbox placeholder="전화번호를 입력해주세요" /> */}
+      <S.phonecertinum
+        placeholder="인증 번호"
+        type="tellVerifyCode"
+        id="tellVerifyCode"
+        name="tellVerifyCode"
+        onChange={handleSignupChange}
+      />
+
       <S.phonepass>확인</S.phonepass>
 
-      <S.signup>회원가입</S.signup>
+      <S.signup onClick={Submit}>회원가입</S.signup>
     </>
   );
 }
