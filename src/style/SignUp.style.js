@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const cover = styled.div`
+  background-color: white;
+  width: 100vw;
+  height: 6vw;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 10vw;
+`;
+
 export const back = styled.div`
   width: 30vw;
   height: 100vw;
