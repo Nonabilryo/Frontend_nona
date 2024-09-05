@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const cover = styled.div`
   background-color: white;
   width: 100vw;
-  height: 5vw;
+  height: 6vw;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   margin-bottom: 10vw;
 `;
 
@@ -18,7 +18,6 @@ export const back = styled.div`
   background: #3ddc63;
   margin-left: 46.9vw;
   top: -43vw;
-  z-index: 1;
 `;
 export const cart = styled.img`
   position: absolute;
@@ -26,7 +25,6 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
-  z-index: 2;
 `;
 export const title1 = styled.div`
   text-align: right;
@@ -39,7 +37,6 @@ export const title1 = styled.div`
   position: absolute;
   width: 12.7vw;
   height: 3vw;
-  z-index: 2;
 `;
 export const title2 = styled.div`
   text-align: right;
@@ -163,7 +160,7 @@ export const emailicertinum = styled.input`
     position: absolute;
     margin-left: 1.6vw;
   }
-  width: 37vw;
+  width: 27vw;
   height: 4vw;
   position: absolute;
   background: white;
@@ -174,6 +171,21 @@ export const emailicertinum = styled.input`
   position: absolute;
 `;
 
+export const emailpass = styled.button`
+  width: 9vw;
+  height: 4vw;
+  background: #3ddc63;
+  border-radius: 0.8vw;
+  border: none;
+  margin-left: 82vw;
+  margin-top: 27.3vw;
+  text-align: center;
+  color: white;
+  font-size: 1.5vw;
+  font-family: Pretendard;
+  position: absolute;
+  font-weight: 600;
+`;
 export const passwordbox = styled.input`
   &::placeholder {
     width: 12.7vw;
@@ -257,7 +269,7 @@ export const phonecertinum = styled.input`
     position: absolute;
     margin-left: 1.6vw;
   }
-  width: 37vw;
+  width: 27vw;
   height: 4vw;
   position: absolute;
   background: white;
@@ -297,5 +309,4 @@ export const signup = styled.button`
   background: #3ddc63;
   color: white;
   font-size: 2vw;
-
 `;
