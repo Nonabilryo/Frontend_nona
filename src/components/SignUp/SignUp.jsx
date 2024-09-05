@@ -58,6 +58,7 @@ function SignUp() {
         alert("사용할 수 없는 이메일입니다.");
       }
     }
+
   };
 
   const EmailCheck = () => {
@@ -115,6 +116,7 @@ function SignUp() {
   };
   const SubmitHandler = async () => {
     console.log(signUpData);
+
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/sign-up`,
       {
@@ -149,6 +151,7 @@ function SignUp() {
     <>
       <S.cover />
       <S.back />
+      {/* <S.cart img src={cart} alt="cart" /> */}
       <S.cart img src={cart} alt="cart" />
 
       <S.title1>환영합니다,</S.title1>
@@ -182,6 +185,7 @@ function SignUp() {
       <S.emailpass>확인</S.emailpass>
       <S.passwordbox placeholder="비밀번호를 입력해주세요" type="password" />
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" type="password" />
+
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
 
       <S.nickbox
@@ -199,6 +203,7 @@ function SignUp() {
         onChange={handleSignupChange}
       />
       <S.emailcheck onClick={EmailCheck}>인증하기</S.emailcheck>
+
       <S.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
