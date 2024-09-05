@@ -5,7 +5,7 @@ export const cover = styled.div`
   width: 100vw;
   height: 6vw;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   margin-bottom: 10vw;
 `;
 
@@ -181,10 +181,6 @@ export const emailicertinum = styled.input`
   position: absolute;
 `;
 
-
-
-
-
 export const emailpass = styled.button`
   width: 9vw;
   height: 4vw;
@@ -278,7 +274,7 @@ export const numcertifi = styled.button`
 `;
 
 export const phonecertinum = styled.input`
-   &::placeholder {
+  &::placeholder {
     width: 11.5vw;
     height: 1.3vw;
     color: #adadad;
