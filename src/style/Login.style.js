@@ -31,7 +31,7 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
-  z-index: 2 ;
+  z-index: 2;
 `;
 
 export const title1 = styled.div`
@@ -134,7 +134,7 @@ export const googlelogo = styled.img`
   width: 1.8vw;
   height: 1.8vw;
   position: absolute;
-  left: 1.0vw;
+  left: 1vw;
   bottom: 1.3vw;
 `;
 
