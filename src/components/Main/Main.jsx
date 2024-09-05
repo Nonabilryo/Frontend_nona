@@ -174,6 +174,7 @@ const Main = ({ isLogin }) => {
           <M.main_line />
           <M.recommend>상품 추천</M.recommend>
 
+
           {/* <M.navContainer>
           <>
             <M.nav src={myInFo} alt="Image"></M.nav>
