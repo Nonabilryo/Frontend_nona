@@ -9,7 +9,6 @@ export const cover = styled.div`
   margin-bottom: 10vw;
 `;
 
-
 export const back = styled.div`
   width: 30vw;
   height: 100vw;
@@ -171,10 +170,7 @@ export const emailicertinum = styled.input`
   margin-left: 53.3vw;
   position: absolute;
 `;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 export const emailpass = styled.button`
   width: 9vw;
   height: 4vw;
@@ -313,5 +309,4 @@ export const signup = styled.button`
   background: #3ddc63;
   color: white;
   font-size: 2vw;
-
 `;
