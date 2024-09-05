@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Switch } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as M from "../../style/Main.style";
@@ -175,7 +174,6 @@ const Main = ({ isLogin }) => {
           <M.main_line />
           <M.recommend>상품 추천</M.recommend>
 
-          <Switch checkedChildren="차용" unCheckedChildren="대여" />
 
           {/* <M.navContainer>
           <>
