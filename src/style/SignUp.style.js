@@ -1,5 +1,4 @@
 import styled from "styled-components";
-<<<<<<< Updated upstream
 
 export const cover = styled.div`
   background-color: white;
@@ -10,8 +9,7 @@ export const cover = styled.div`
   margin-bottom: 10vw;
 `;
 
-=======
->>>>>>> Stashed changes
+
 export const back = styled.div`
   width: 30vw;
   height: 100vw;
