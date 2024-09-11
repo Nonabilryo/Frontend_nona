@@ -10,6 +10,7 @@ import Nav from "./components/Nav/Nav";
 import PostArticle from "./components/PostArticle/PostArticle";
 import DetailPage from "./components/Detail/DetailPage";
 import MyPage from "./components/MyPage/MyPage"
+import ChattingPage from "./components/Chat/ChattingPage";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(null);
@@ -38,6 +39,7 @@ function Router() {
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route exact path="/login" element={isLogin ? <Navigate to="/" /> : <Login setIsLogin={setIsLogin}/>} />
         <Route exact path="/signup" element={isLogin ? <Navigate to="/" /> : <SignUp />} />
+        <Route exact path="/chat" element={<ChattingPage />} />
       </Routes>
     </BrowserRouter>
   );
