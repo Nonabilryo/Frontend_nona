@@ -16,26 +16,25 @@ function Router() {
   const [isLogin, setIsLogin] = useState(null);
 
   useEffect(() => {
-    isAuth().then(result => {
+    isAuth().then((result) => {
       setIsLogin(result);
     });
   }, []);
 
-  if(isLogin === null) {
-    return(
-      <>로딩중</>
-    )
+  if (isLogin === null) {
+    return <>로딩중</>;
   }
 
   return (
     <BrowserRouter>
-      <Nav isLogin={isLogin}/>
+      <Nav isLogin={isLogin} />
       <Routes>
-        <Route exact path="/main" element={<Main/>} />
+        <Route path="/" element={<h1>hi</h1>} />
+        <Route exact path="/main" element={<Main />} />
         <Route exact path="/article/post" element={<PostArticle />} />
         <Route exact path="/detail" element={<DetailPage />} />
         <Route exact path="/mypage" element={<MyPage />} />
-        <Route path="/article/:id" element={<ArticleInfo />}  />
+        <Route path="/article/:id" element={<ArticleInfo />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route exact path="/login" element={isLogin ? <Navigate to="/" /> : <Login setIsLogin={setIsLogin}/>} />
         <Route exact path="/signup" element={isLogin ? <Navigate to="/" /> : <SignUp />} />

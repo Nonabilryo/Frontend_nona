@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as L from "../../style/Login.style";
-import googlelogo from "../../assets/img/googlelogo.png";
+import googlelogo from "../../assets/img/google_logo.png";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
@@ -84,7 +84,7 @@ const Login = ({setIsLogin}) => {
       <L.title2>노나빌려</L.title2>
       <L.title3>입니다!</L.title3>
       <L.emailbox
-        placeholder="이메일을 입력해주세요"
+        placeholder="아이디를 입력해주세요"
         type="email"
         id="id"
         name="id"

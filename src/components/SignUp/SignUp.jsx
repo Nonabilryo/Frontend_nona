@@ -58,6 +58,7 @@ function SignUp() {
         alert("사용할 수 없는 이메일입니다.");
       }
     }
+
   };
 
   const EmailCheck = () => {
@@ -115,6 +116,7 @@ function SignUp() {
   };
   const SubmitHandler = async () => {
     console.log(signUpData);
+
     const response = await axios.post(
       `${CONFIG.SERVER}/sso/sign-up`,
       {
@@ -131,6 +133,7 @@ function SignUp() {
       },
       { withCredentials: true }
     );
+
     console.log("---------------------");
     navigate("/login");
     // eslint-disable-next-line no-restricted-globals
@@ -178,9 +181,11 @@ function SignUp() {
         name="emailVerifyCode"
         onChange={handleSignupChange}
       />
+
       <S.emailpass>확인</S.emailpass>
       <S.passwordbox placeholder="비밀번호를 입력해주세요" type="password" />
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" type="password" />
+
       <S.phonenumbox placeholder="전화번호를 입력해주세요" />
 
       <S.nickbox
@@ -198,6 +203,7 @@ function SignUp() {
         onChange={handleSignupChange}
       />
       <S.emailcheck onClick={EmailCheck}>인증하기</S.emailcheck>
+
       <S.passwordbox
         placeholder="비밀번호를 입력해주세요"
         type="password"
@@ -222,6 +228,7 @@ function SignUp() {
         name="tellVerifyCode"
         onChange={handleSignupChange}
       />
+
       <S.phonepass>확인</S.phonepass>
 
       <S.signup onClick={Submit}>회원가입</S.signup>
