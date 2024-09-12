@@ -110,11 +110,12 @@ export const info = styled.img`
 `;
 
 export const SearchButton = styled.button`
-  background: none;
-  border: none;
-  ${SearchButton}:hover & {
-    cursor: point;
-  }
+background: none;
+border: none;
+
+&:hover {
+    cursor: pointer;
+}
 `;
 
 export const chat = styled.img`
