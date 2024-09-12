@@ -6,6 +6,8 @@ import ChatImg from "../../assets/img/chat.svg";
 import CommunityImg from "../../assets/img/community.svg";
 import SearchImg from "../../assets/img/search.svg";
 import { useNavigate } from "react-router";
+import MyPage from "../MyPage/MyPage";
+import ChattingPage from "../Chat/ChattingPage";
 
 const Nav = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -45,8 +47,8 @@ const Nav = ({ isLogin }) => {
             </S.SearchButton>
         </S.SearchBack>
         <S.Icons>
-          <S.ProfileImg src={ProfileImg} alt="error" />
-          <S.ChatImg src={ChatImg} alt="error" />
+          <S.ProfileImg src={ProfileImg} alt="error" onClick={useNavigate(<MyPage />)} />
+          <S.ChatImg src={ChatImg} alt="error" onClick={useNavigate(<ChattingPage />)} />
           <S.CommunityImg src={CommunityImg} alt="error" />
         </S.Icons>
       </S.Ground>

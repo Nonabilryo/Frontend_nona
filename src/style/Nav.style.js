@@ -83,8 +83,9 @@ export const write = styled.div`
 `;
 
 export const Search = styled.input`
-  padding-left: 15px;
-  width: 45vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  width: 100%;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -106,7 +107,10 @@ export const info = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+}
 `;
 
 export const SearchButton = styled.button`
@@ -124,7 +128,10 @@ export const chat = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+}
 `;
 
 export const comm = styled.img`
@@ -133,7 +140,10 @@ export const comm = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+}
 `;
 export const Icons = styled.div`
   width: 16vw;
