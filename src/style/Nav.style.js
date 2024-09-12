@@ -65,6 +65,7 @@ export const Search = styled.input`
 export const SearchButton = styled.button`
 background: none;
 border: none;
+width: 5vw;
 
 &:hover {
     cursor: pointer;
