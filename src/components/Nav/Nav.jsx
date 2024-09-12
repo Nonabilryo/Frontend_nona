@@ -1,9 +1,13 @@
-import myInFo from "../../assets/img/myInfo.png";
-import comunity from "../../assets/img/comunity.png";
-import chat from "../../assets/img/chat.png";
-import logo from "../../assets/img/logo.png";
-import * as N from "../../style/Nav.style";
+import React from "react";
+import * as S from "../../style/Nav.style";
+import LogoImg from "../../assets/img/logo.svg";
+import ProfileImg from "../../assets/img/profile.svg";
+import ChatImg from "../../assets/img/chat.svg";
+import LogoutImg from "../../assets/img/logout.svg";
+import SearchImg from "../../assets/img/search.svg";
 import { useNavigate } from "react-router";
+import MyPage from "../MyPage/MyPage";
+import ChattingPage from "../Chat/ChattingPage";
 
 const Nav = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -31,28 +35,24 @@ const Nav = ({ isLogin }) => {
   };
   return (
     <>
-      <N.navContainer>
-        <N.navImage src={logo} onClick={MainHandler}></N.navImage>
-        <N.search
-          type="text"
-          placeholder="찾으시는 상품을 검색하세요"></N.search>
-        {isLogin ? (
-          <>
-            <N.info src={myInFo} onClick={InfoHandler} ></N.info>
-            <N.chat src={chat}></N.chat>
-            <N.comm src={comunity}></N.comm>
-
-            <N.write onClick={PostArticleHandler}>글쓰기</N.write>
-            <N.logout onClick={LogoutHandler}>로그아웃</N.logout>
-          </>
-        ) : (
-          <>
-            <N.login onClick={LoginHandler}></N.login>
-            <N.signup onClick={SignUpHandler}>회원가입</N.signup>
-          </>
-        )}
-      </N.navContainer>
-      {isLogin ? <></> : <></>}
+      <S.Base>
+      <S.Ground>
+        <S.LogoImg src={LogoImg} alt="error" onClick={useNavigate(<MyPage />)} />
+        <S.SearchBack>
+        <S.Search
+            type="text"
+            placeholder="찾으시는 상품을 입력하세요."  />
+            <S.SearchButton>
+                <img src={SearchImg} alt="error" style={{width:"2.2vw"}} />
+            </S.SearchButton>
+        </S.SearchBack>
+        <S.Icons>
+          <S.ProfileImg src={ProfileImg} alt="error" onClick={useNavigate(<MyPage />)} />
+          <S.ChatImg src={ChatImg} alt="error" onClick={useNavigate(<ChattingPage />)} />
+          <S.LogoutImg src={LogoutImg} alt="error" />
+        </S.Icons>
+      </S.Ground>
+    </S.Base>
     </>
   );
 };
