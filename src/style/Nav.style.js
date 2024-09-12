@@ -26,7 +26,7 @@ export const LogoImg = styled.img`
 export const ProfileImg = styled.img`
   width: 2.5vw;
   &:hover {
-    cursor: pointer
+    cursor: pointer;
 }
 `;
 
