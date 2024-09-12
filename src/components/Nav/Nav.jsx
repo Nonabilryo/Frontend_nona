@@ -3,7 +3,7 @@ import * as S from "../../style/Nav.style";
 import LogoImg from "../../assets/img/logo.svg";
 import ProfileImg from "../../assets/img/profile.svg";
 import ChatImg from "../../assets/img/chat.svg";
-import CommunityImg from "../../assets/img/community.svg";
+import LogoutImg from "../../assets/img/logout.svg";
 import SearchImg from "../../assets/img/search.svg";
 import { useNavigate } from "react-router";
 import MyPage from "../MyPage/MyPage";
@@ -37,7 +37,7 @@ const Nav = ({ isLogin }) => {
     <>
       <S.Base>
       <S.Ground>
-        <S.LogoImg src={LogoImg} alt="error" />
+        <S.LogoImg src={LogoImg} alt="error" onClick={useNavigate(<MyPage />)} />
         <S.SearchBack>
         <S.Search
             type="text"
@@ -49,7 +49,7 @@ const Nav = ({ isLogin }) => {
         <S.Icons>
           <S.ProfileImg src={ProfileImg} alt="error" onClick={useNavigate(<MyPage />)} />
           <S.ChatImg src={ChatImg} alt="error" onClick={useNavigate(<ChattingPage />)} />
-          <S.CommunityImg src={CommunityImg} alt="error" />
+          <S.LogoutImg src={LogoutImg} alt="error" />
         </S.Icons>
       </S.Ground>
     </S.Base>
