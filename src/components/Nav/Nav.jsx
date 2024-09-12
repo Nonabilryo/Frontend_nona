@@ -47,7 +47,7 @@ const Nav = ({ isLogin }) => {
           </>
         ) : (
           <>
-            <N.login onClick={LoginHandler}>로그인</N.login>
+            <N.login onClick={LoginHandler}></N.login>
             <N.signup onClick={SignUpHandler}>회원가입</N.signup>
           </>
         )}
