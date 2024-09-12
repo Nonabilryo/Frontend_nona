@@ -52,8 +52,9 @@ font-size: 15px;
 export const SearchButton = styled.button`
 background: none;
 border: none;
-${SearchButton}:hover & {
-    cursor: point;
+
+&:hover {
+    cursor: pointer;
 }
 `;
 

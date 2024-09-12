@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../../style/Topbar.style";
+import * as S from "../../style/Nav.style";
 import LogoImg from "../../assets/img/logo.svg";
 import ProfileImg from "../../assets/img/profile.svg";
 import ChatImg from "../../assets/img/chat.svg";
