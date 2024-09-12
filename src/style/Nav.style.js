@@ -5,22 +5,14 @@ export const navImage = styled.img`
   margin-left: 5vw;
   margin-top: 1vw;
   position: absolute;
-  cursor: pointer;
 `;
 
-export const Base = styled.div`
-  height: 13vh;
+export const navContainer = styled.div`
+  top: 5vw;
   display: flex;
-  justify-content: center;
-  border-bottom: 0.5px solid #c4c4c4;
-`;
-
-export const Ground = styled.div`
-  width: 90vw;
-  height: 13vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
+  position: relative;
 `;
 export const login = styled.div`
   font-family: pretendard-semibold;
@@ -29,16 +21,6 @@ export const login = styled.div`
   size: 2vw;
   position: absolute;
   margin-bottom: 1vw;
-  cursor: pointer;
-`;
-
-export const LogoImg = styled.img`
-  width: 4.5vw;
-  margin-left: 2vw;
-`;
-
-export const ProfileImg = styled.img`
-  width: 2.5vw;
 `;
 
 export const signup = styled.div`
@@ -47,23 +29,19 @@ export const signup = styled.div`
   margin-left: 87vw;
   position: absolute;
   margin-bottom: 1vw;
-  cursor: pointer;
 `;
 
-export const ChatImg = styled.img`
-  width: 2.5vw;
-`;
-
-export const CommunityImg = styled.img`
-  width: 2.5vw;
-`;
-
-export const SearchBack = styled.div`
-  height: 6vh;
+export const search = styled.input`
   width: 50vw;
-  border: 3px solid #3bd15f;
-  border-radius: 5px;
-  display: flex;
+  height: 3vw;
+  margin-left: 15vw;
+  margin-top: 2vw;
+  border-color: #3bd15f;
+  border-radius: 10vw;
+  border-width: 0.3vw;
+  padding-left: 1vw;
+  z-index: 0;
+  position: absolute;
 `;
 
 export const write = styled.div`
@@ -79,16 +57,7 @@ export const write = styled.div`
   padding-left: 1.5vw;
   padding-top: 0.6vw;
   margin-bottom: 0.4vw;
-  cursor: pointer;
-`;
 
-export const Search = styled.input`
-  padding-left: 15px;
-  width: 45vw;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  font-size: 15px;
 `;
 
 export const logout = styled.div`
@@ -97,7 +66,7 @@ export const logout = styled.div`
   margin-left: 93vw;
   position: absolute;
   margin-bottom: 1.1vw;
-  cursor: pointer;
+
 `;
 
 export const info = styled.img`
@@ -106,15 +75,6 @@ export const info = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
-`;
-
-export const SearchButton = styled.button`
-  background: none;
-  border: none;
-  ${SearchButton}:hover & {
-    cursor: point;
-  }
 `;
 
 export const chat = styled.img`
@@ -123,7 +83,6 @@ export const chat = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
 `;
 
 export const comm = styled.img`
@@ -132,10 +91,4 @@ export const comm = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
-  cursor: pointer;
-`;
-export const Icons = styled.div`
-  width: 16vw;
-  display: flex;
-  justify-content: space-between;
 `;
