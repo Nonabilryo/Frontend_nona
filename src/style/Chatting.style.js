@@ -52,12 +52,23 @@ export const searchImg = styled.img`
 width: 1.5vw;
 `;
 
-export const middleArea = styled.div`
+export const middleTop = styled.div`
 width: 100%;
 height: 10vh;
 background-color: red;
+display: flex;
+justify-content: space-between;
+align-items: center;
 `;
 
 export const userImg = styled.img`
 width: 4vw;
+`;
+
+export const UserInfo = styled.div`
+display: flex;
+`;
+
+export const UserWhere = styled.div`
+display: flex;
 `;
