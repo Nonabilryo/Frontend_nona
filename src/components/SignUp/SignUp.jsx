@@ -58,13 +58,27 @@ function SignUp() {
         alert("사용할 수 없는 이메일입니다.");
       }
     }
-
   };
 
-  const EmailCheck = () => {
-    EmailCheckHandler()
-      .then((e) => console.log(e))
-      .catch((e) => console.log(e));
+  const EmailCheck = async () => {
+    try {
+      const response = await axios.post(
+        `${CONFIG.SERVER}/sso/verify/emailCode`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          emailVerifyCode: signUpData.emailVerifyCode,
+        },
+        { withCredentials: true }
+      );
+      alert("사용할 수 있는 이메일입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("다시 시도해주세요.");
+      }
+    }
   };
 
   const TellCheckHandler = async () => {
@@ -135,6 +149,7 @@ function SignUp() {
     );
 
     console.log("---------------------");
+    alert("로그인 되었습니다.");
     navigate("/login");
     // eslint-disable-next-line no-restricted-globals
     location.reload();
@@ -173,7 +188,7 @@ function SignUp() {
         name="id"
         onChange={handleSignupChange}
       />
-      <S.emailcheck>인증하기</S.emailcheck>
+      <S.emailcheck onChange={EmailCheckHandler}>인증하기</S.emailcheck>
       <S.emailicertinum
         placeholder="인증 번호"
         type="emailVerifyCode"
@@ -182,7 +197,7 @@ function SignUp() {
         onChange={handleSignupChange}
       />
 
-      <S.emailpass>확인</S.emailpass>
+      <S.emailpass onChange={EmailCheck}>확인</S.emailpass>
       <S.passwordbox placeholder="비밀번호를 입력해주세요" type="password" />
       <S.passcheck placeholder="비밀번호를 다시 입력해주세요" type="password" />
 
@@ -229,7 +244,7 @@ function SignUp() {
         onChange={handleSignupChange}
       />
 
-      <S.phonepass>확인</S.phonepass>
+      <S.phonepass onChange={TellCheck}>확인</S.phonepass>
 
       <S.signup onClick={Submit}>회원가입</S.signup>
     </>
