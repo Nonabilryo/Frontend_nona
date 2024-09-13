@@ -57,6 +57,7 @@ color : #8F8F8F;
 export const searchBtn = styled.button`
 border: none;
 background: none;
+
 &:hover{
   cursor: pointer;
 }
