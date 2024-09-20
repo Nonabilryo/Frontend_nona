@@ -1,12 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Client } from "@stomp/stompjs";
 import * as S from "../../style/Chatting.style";
+import ChatInput from "../../components/chatInput/ChatInput";
 import userImg from "../../assets/img/user.svg";
 import searchImg from "../../assets/img/searchGray.svg";
 import mapImg from "../../assets/img/map.svg";
-import SendImg from "../../assets/img/send.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
 
 const ChattingPage = () => {
+  const [message, setMessage] = useState("");
+  const [chatMessages, setChatMessages] = useState([]);
+  const sendMessage = (event) => {
+    event.preventDefault();
+
+    const chatMessage = {
+      sender: "사용자 이름", // 현재 사용자 정보
+      content: message,
+      type: "CHAT",
+    };
+
+    if (client && client.connected) {
+      client.publish({
+        destination: "/app/chat", // 서버의 메시지 핸들러 경로
+        body: JSON.stringify(chatMessage),
+      });
+      setMessage(""); // 메시지 전송 후 입력 필드 비우기
+    }
+  };
+  let client;
+
+  const sendIdxToServer = async(idx) => {
+    const accessToken = localStorage.getItem('accessToken');
+  }
+
+  useEffect(() => {
+    // STOMP 클라이언트 설정
+    client = new Client({
+      brokerURL: "ws://10.80.161.246:8080/chat/ws",
+      onConnect: () => {
+        console.log("Connected to STOMP server");
+
+        // 메시지 구독
+        client.subscribe("/topic/messages", (message) => {
+          const receivedMessage = JSON.parse(message.body);
+          setChatMessages((prevMessages) => [...prevMessages, receivedMessage]);
+        });
+      },
+      onDisconnect: () => {
+        console.log("Disconnected from STOMP server");
+      },
+    });
+
+    // 클라이언트 활성화
+    client.activate();
+
+    // 컴포넌트 언마운트 시 연결 해제
+    return () => {
+      client.deactivate();
+    };
+  }, []);
+
   return (
     <>
       <S.all>
@@ -40,14 +93,19 @@ const ChattingPage = () => {
               </div>
             </S.UserWhere>
           </S.middleTop>
-          <S.middleMiddle></S.middleMiddle>
+          <S.middleMiddle>
+            {chatMessages.map((msg, index) => (
+              <div key={index}>
+                <strong>{msg.sender}</strong>: {msg.content}
+              </div>
+            ))}
+          </S.middleMiddle>
           <S.middleBottom>
-            <S.SendChatArea>
-              <S.SendChat type="text" placeholder="메시지를 입력하세요." />
-              <S.searchBtn>
-                <S.SendImg src={SendImg} />
-              </S.searchBtn>
-            </S.SendChatArea>
+            <ChatInput
+              message={message}
+              setMessage={setMessage}
+              sendMessage={sendMessage}
+            />
           </S.middleBottom>
         </S.middle>
         <S.frontNlast>

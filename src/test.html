@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+<body>
+    <h2>WebSocket Chat Test</h2>
+    <div>
+        <input type="text" id="authorization" placeholder="Enter your Authorization" />
+        <input type="text" id="userIdx" placeholder="Enter your userIdx" />
+        <button onclick="connect()">Connect</button>
+    </div>
+    <br>
+    <div>
+        <input type="text" id="receiver" placeholder="Enter receiver userIdx" />
+        <input type="text" id="message" placeholder="Enter message" />
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+    <br>
+    <div>
+        <h3>Messages:</h3>
+        <ul id="messages"></ul>
+    </div>
+
+    <script>
+        let stompClient = null;
+        let userIdx = null;
+        let authorization = null;
+
+        function connect() {
+            userIdx = document.getElementById('userIdx').value;
+            authorization = document.getElementById('authorization').value;
+            const socket = new SockJS('http://localhost:8080/chat/ws');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function (frame) {
+                console.log('Connected: ' + frame);
+                stompClient.subscribe(`/topic/${userIdx}`, function (message) {
+                    showMessage(JSON.parse(message.body).content);
+                },{
+                    Authorization:authorization
+                });
+            });
+        }
+        // 1. connect
+        // 2. subscribe && token+userIdx(본인이어야 함 = 토큰과 정보가 같아야 함)
+        // token 안에는 userIdx가 들어있음
+
+        function sendMessage() {
+            const receiver = document.getElementById('receiver').value;
+            const message = document.getElementById('message').value;
+            
+            stompClient.send(`/app/${receiver}`, {}, JSON.stringify({
+                sender: userIdx,
+                receiver: receiver,
+                contentType: "MESSAGE",
+                content: message
+            }));
+        }
+
+        function showMessage(message) {
+            const messagesList = document.getElementById('messages');
+            const messageElement = document.createElement('li');
+            messageElement.textContent = message;
+            messagesList.appendChild(messageElement);
+        }
+    </script>
+</body>
+</html>
