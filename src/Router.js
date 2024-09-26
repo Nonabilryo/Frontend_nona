@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../src/components/Login/Login";
-import SignUp from "./components/SignUp/SignUp";
-import LoginSuccess from "./components/LoginSuccess/LoginSuccess";
-import Main from "./components/Main/Main";
-import ArticleInfo from "./components/ArticleInfo/ArticleInfo";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
+import LoginSuccess from "./pages/LoginSuccess/LoginSuccess";
+import Main from "./pages/Main/Main";
+import ArticleInfo from "./pages/ArticleInfo/ArticleInfo";
 import { useState, useEffect } from "react";
 import isAuth from "./util/isAuth";
-import Nav from "./components/Nav/Nav";
-import PostArticle from "./components/PostArticle/PostArticle";
-import DetailPage from "./components/Detail/DetailPage";
-import MyPage from "./components/MyPage/MyPage";
+import Nav from "./pages/Nav/Nav";
+import PostArticle from "./pages/PostArticle/PostArticle";
+import DetailPage from "./pages/Detail/DetailPage";
+import MyPage from "./pages/MyPage/MyPage";
+import ChattingPage from "./pages/Chat/ChattingPage";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(null);
@@ -35,6 +36,7 @@ function Router() {
         <Route exact path="/mypage" element={<MyPage />} />
         <Route path="/article/:id" element={<ArticleInfo />} />
         <Route path="/login/success" element={<LoginSuccess />} />
+        <Route exact path="/chat" element={<ChattingPage />} />
         <Route
           exact
           path="/login"
