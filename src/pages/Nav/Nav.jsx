@@ -24,7 +24,7 @@ const Nav = ({ isLogin }) => {
   const LogoutHandler = () => {
     localStorage.setItem("accessToken", null);
     localStorage.setItem("refreshToken", null);
-    navigate("/main");
+    window.location.reload();
   };
 
   const InfoHandler = () => {
@@ -38,13 +38,13 @@ const Nav = ({ isLogin }) => {
           type="text"
           placeholder="찾으시는 상품을 검색하세요"></N.search>
         {isLogin ? (
-          <>
+          <N.iconBox>
             <N.info src={myInFo} onClick={InfoHandler}></N.info>
             <N.chat src={chat} onClick={ChatHandler}></N.chat>
             <N.comm src={comunity}></N.comm>
 
             <N.logout onClick={LogoutHandler}>로그아웃</N.logout>
-          </>
+          </N.iconBox>
         ) : (
           <>
             <N.login onClick={LoginHandler}>로그인</N.login>

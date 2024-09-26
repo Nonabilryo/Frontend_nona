@@ -8,6 +8,10 @@ export const navImage = styled.img`
   cursor: pointer;
 `;
 
+export const iconBox = styled.div`
+
+`;
+
 export const navContainer = styled.div`
   top: 5vw;
   display: flex;
@@ -66,35 +70,35 @@ export const write = styled.div`
 export const logout = styled.div`
   font-family: pretendard-semibold;
   font-size: 1.1vw;
-  margin-left: 93vw;
+  margin-left: 90vw;
   position: absolute;
-  margin-bottom: 1.1vw;
+  margin-top: -2.4vw;
   cursor: pointer;
 `;
 
 export const info = styled.img`
   position: absolute;
-  margin-left: 70vw;
+  margin-left: 71vw;
   width: 2.5vw;
   height: 2.3vw;
-  margin-bottom: 0.5vw;
   cursor: pointer;
+  margin-top: -3vw;
 `;
 
 export const chat = styled.img`
   position: absolute;
-  margin-left: 75vw;
+  margin-left: 76vw;
   width: 2.5vw;
   height: 2.3vw;
-  margin-bottom: 0.5vw;
+  margin-top: -3vw;
   cursor: pointer;
 `;
 
 export const comm = styled.img`
   position: absolute;
-  margin-left: 80vw;
+  margin-left: 81vw;
   width: 2.5vw;
   height: 2.3vw;
-  margin-bottom: 0.5vw;
+  margin-top: -3vw;
   cursor: pointer;
 `;
