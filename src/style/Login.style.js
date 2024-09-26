@@ -128,6 +128,7 @@ export const googlelogin = styled.button`
   border: 0.15vw #efefef solid;
   margin-top: 28.3vw;
   margin-left: 56.5vw;
+  cursor: pointer;
 `;
 
 export const googlelogo = styled.img`
@@ -152,6 +153,7 @@ export const login = styled.button`
   position: absolute;
   margin-top: 34.6vw;
   margin-left: 56.5vw;
+  cursor: pointer;
 `;
 
 export const signup = styled.text`
@@ -164,6 +166,7 @@ export const signup = styled.text`
   margin-top: 43.1vw;
   margin-left: 67.8vw;
   width: 13.2vw;
+  cursor: pointer;
 `;
 
 export const divideline = styled.div`
@@ -185,6 +188,7 @@ export const searchid = styled.text`
   position: absolute;
   margin-top: 46.2vw;
   margin-left: 65.5vw;
+  cursor: pointer;
 `;
 
 export const searchpassword = styled.text`
@@ -196,4 +200,5 @@ export const searchpassword = styled.text`
   position: absolute;
   margin-top: 46.2vw;
   margin-left: 76.4vw;
+  cursor: pointer;
 `;

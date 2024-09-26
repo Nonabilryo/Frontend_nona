@@ -14,11 +14,12 @@ const Nav = ({ isLogin }) => {
   const SignUpHandler = () => {
     navigate("/signup");
   };
-  const PostArticleHandler = () => {
-    navigate("/article/post");
-  };
+
   const MainHandler = () => {
     navigate("/main");
+  };
+  const ChatHandler = () => {
+    navigate("/chat");
   };
   const LogoutHandler = () => {
     localStorage.setItem("accessToken", null);
@@ -38,11 +39,10 @@ const Nav = ({ isLogin }) => {
           placeholder="찾으시는 상품을 검색하세요"></N.search>
         {isLogin ? (
           <>
-            <N.info src={myInFo} onClick={InfoHandler} ></N.info>
-            <N.chat src={chat}></N.chat>
+            <N.info src={myInFo} onClick={InfoHandler}></N.info>
+            <N.chat src={chat} onClick={ChatHandler}></N.chat>
             <N.comm src={comunity}></N.comm>
 
-            <N.write onClick={PostArticleHandler}>글쓰기</N.write>
             <N.logout onClick={LogoutHandler}>로그아웃</N.logout>
           </>
         ) : (

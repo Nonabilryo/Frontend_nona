@@ -5,6 +5,7 @@ export const navImage = styled.img`
   margin-left: 5vw;
   margin-top: 1vw;
   position: absolute;
+  cursor: pointer;
 `;
 
 export const navContainer = styled.div`
@@ -21,6 +22,7 @@ export const login = styled.div`
   size: 2vw;
   position: absolute;
   margin-bottom: 1vw;
+  cursor: pointer;
 `;
 
 export const signup = styled.div`
@@ -29,6 +31,7 @@ export const signup = styled.div`
   margin-left: 87vw;
   position: absolute;
   margin-bottom: 1vw;
+  cursor: pointer;
 `;
 
 export const search = styled.input`
@@ -57,7 +60,7 @@ export const write = styled.div`
   padding-left: 1.5vw;
   padding-top: 0.6vw;
   margin-bottom: 0.4vw;
-
+  cursor: pointer;
 `;
 
 export const logout = styled.div`
@@ -66,7 +69,7 @@ export const logout = styled.div`
   margin-left: 93vw;
   position: absolute;
   margin-bottom: 1.1vw;
-
+  cursor: pointer;
 `;
 
 export const info = styled.img`
@@ -75,6 +78,7 @@ export const info = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
+  cursor: pointer;
 `;
 
 export const chat = styled.img`
@@ -83,6 +87,7 @@ export const chat = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
+  cursor: pointer;
 `;
 
 export const comm = styled.img`
@@ -91,4 +96,5 @@ export const comm = styled.img`
   width: 2.5vw;
   height: 2.3vw;
   margin-bottom: 0.5vw;
+  cursor: pointer;
 `;
