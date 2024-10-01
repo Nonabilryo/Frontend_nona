@@ -65,6 +65,7 @@ const Login = ({ setIsLogin }) => {
       localStorage.setItem('refreshToken', refreshToken); // todo 쿠키로 수정
       setIsLogin(true);
       console.log("---------------------");
+      alert("로그인 되었습니다.")
       navigate("/");
       // eslint-disable-next-line no-restricted-globals
       location.reload();

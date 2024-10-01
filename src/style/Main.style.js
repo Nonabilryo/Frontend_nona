@@ -4,6 +4,13 @@ export const all = styled`
   position: absolute;
 `;
 
+export const box = styled.div`
+  position: relative;
+  width: 100%;
+  height: 7vw;
+  z-index: 0;
+`;
+
 export const logo = styled.img`
   width: 6.3vw;
   height: 6vw; /* height 수정 */
@@ -47,21 +54,6 @@ export const community = styled.img`
   position: absolute;
 `;
 
-export const line1 = styled.img`
-  width: 0.2vw;
-  height: 2.8vw;
-  margin-left: 81.4vw;
-  position: absolute;
-`;
-
-export const line2 = styled.img`
-  width: 0.2vw;
-  height: 2.8vw;
-  margin-left: 89.2vw;
-  margin-top: 4.5vw;
-  position: absolute;
-`;
-
 export const search_icon = styled.img`
   width: 2.4vw;
   height: 2.7vw;
@@ -77,14 +69,6 @@ export const delete_search = styled.img`
   position: absolute;
   margin-top: 4.8vw;
   margin-left: 61vw;
-`;
-
-export const main_line = styled.div`
-  width: 99.92vw;
-  margin-top: 10vw;
-  position: absolute;
-  border: 0.05vw solid #c4c4c4;
-  z-index: 2;
 `;
 
 export const recommend = styled.div`
@@ -107,32 +91,31 @@ export const line = styled.ol`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 25vw;
   list-style-type: none;
   padding: 0;
-  margin: 0;
 `;
 
 export const article = styled.li`
   width: 18%;
-  padding: 10px;
   box-sizing: border-box;
   border: 1px solid gray;
   border-radius: 8px;
   margin: 1%;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 `;
 
 export const image = styled.img`
   width: 100%;
-  height: 23vw;
+  height: 60%;
   box-sizing: border-box;
-  border: 1px solid #eeeeee;
+  border-bottom: solid 0.5px black;
   border-top-right-radius: 1vw;
   border-top-left-radius: 1vw;
-  margin-left: 1.3vw;
-  margin-top: 10vw;
   margin-bottom: -4vw;
+  text-align: center;
 `;
 
 export const button = styled.button`

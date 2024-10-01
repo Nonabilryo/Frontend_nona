@@ -6,6 +6,7 @@ export const navImage = styled.img`
   margin-top: 1vw;
   position: absolute;
   cursor: pointer;
+  
 `;
 
 export const iconBox = styled.div`
@@ -18,6 +19,7 @@ export const navContainer = styled.div`
   flex-direction: row;
   align-items: flex-end;
   position: relative;
+  z-index: 2;
 `;
 export const login = styled.div`
   font-family: pretendard-semibold;

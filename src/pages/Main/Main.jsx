@@ -27,7 +27,7 @@ const Main = ({ isLogin }) => {
       });
 
       // 서버 응답 데이터 확인
-      console.log(response.data); 
+      console.log(response.data);
 
       setArticlesData((prevData) => ({
         articles: [...prevData.articles, ...response.data.data.content],
@@ -76,6 +76,7 @@ const Main = ({ isLogin }) => {
 
   return (
     <>
+      <M.box />
       <M.articleContainer>
         {ChunkArray(articlesData.articles, 5).map((chunk, chunkIndex) => (
           <M.line key={chunkIndex}>
@@ -86,8 +87,6 @@ const Main = ({ isLogin }) => {
                 name="article"
                 onClick={ArticleClickHandler}>
                 <M.image src={article.image.url} alt="Image" />
-                <h2>{article.title}</h2>
-                <p>가격: {article.price}원</p>
                 <p>{renderRentalType(article.rentalType)}</p>
                 <M.title>{article.title}</M.title>
                 <M.price>{article.price}원</M.price>

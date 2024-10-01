@@ -9,7 +9,7 @@ export const cover = styled.div`
   width: 100vw;
   height: 6vw;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   margin-bottom: 10vw;
 `;
 
@@ -22,7 +22,7 @@ export const back = styled.div`
   background: #3ddc63;
   margin-left: 46.9vw;
   top: -43vw;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const cart = styled.img`
@@ -31,7 +31,7 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const title1 = styled.div`
@@ -45,7 +45,7 @@ export const title1 = styled.div`
   position: absolute;
   width: 12.7vw;
   height: 3vw;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const title2 = styled.div`

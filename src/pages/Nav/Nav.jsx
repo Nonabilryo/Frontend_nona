@@ -17,6 +17,7 @@ const Nav = ({ isLogin }) => {
 
   const MainHandler = () => {
     navigate("/");
+    window.location.reload();
   };
   const ChatHandler = () => {
     navigate("/chat");
@@ -24,6 +25,7 @@ const Nav = ({ isLogin }) => {
   const LogoutHandler = () => {
     localStorage.setItem("accessToken", null);
     localStorage.setItem("refreshToken", null);
+    alert("로그아웃 되었습니다.");
     window.location.reload();
   };
 
