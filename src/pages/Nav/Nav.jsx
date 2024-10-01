@@ -16,7 +16,7 @@ const Nav = ({ isLogin }) => {
   };
 
   const MainHandler = () => {
-    navigate("/main");
+    navigate("/");
   };
   const ChatHandler = () => {
     navigate("/chat");

@@ -57,7 +57,7 @@ const PostArticle = () => {
         }
         // { withCredentials: true }
       );
-      navigate("/main");
+      navigate("/");
       // Handle the response if needed
     } catch (error) {
       // Handle the error if needed
