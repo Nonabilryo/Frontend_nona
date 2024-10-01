@@ -29,8 +29,7 @@ function Router() {
     <BrowserRouter>
       <Nav isLogin={isLogin} />
       <Routes>
-        <Route path="/" element={<h1>hi</h1>} />
-        <Route exact path="/main" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route exact path="/article/post" element={<PostArticle />} />
         <Route exact path="/detail" element={<DetailPage />} />
         <Route exact path="/mypage" element={<MyPage />} />

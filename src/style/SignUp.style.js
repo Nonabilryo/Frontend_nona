@@ -77,6 +77,7 @@ export const nickcheck = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const nickbox = styled.input`
   &::placeholder {
@@ -149,6 +150,7 @@ export const emailcheck = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const emailicertinum = styled.input`
   &::placeholder {
@@ -185,6 +187,7 @@ export const emailpass = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const passwordbox = styled.input`
   &::placeholder {
@@ -257,6 +260,7 @@ export const numcertifi = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 export const phonecertinum = styled.input`
@@ -294,6 +298,7 @@ export const phonepass = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 export const signup = styled.button`
@@ -309,4 +314,11 @@ export const signup = styled.button`
   background: #3ddc63;
   color: white;
   font-size: 2vw;
+  cursor: pointer;
+`;
+
+export const none = styled.div`
+  width: 100%;
+  height: 5vw;
+  position: relative;
 `;

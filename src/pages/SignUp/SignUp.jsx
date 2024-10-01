@@ -58,7 +58,6 @@ function SignUp() {
         alert("사용할 수 없는 이메일입니다.");
       }
     }
-
   };
 
   const EmailCheck = () => {
@@ -68,17 +67,24 @@ function SignUp() {
   };
 
   const TellCheckHandler = async () => {
-    const response = await axios.post(
-      `${CONFIG.SERVER}/sso/verify/tell`,
-      {
-        headers: {
-          "Content-Type": "application/json",
+    try {
+      const response = await axios.post(
+        `${CONFIG.SERVER}/sso/verify/tell`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          tell: signUpData.tell,
         },
-        tell: signUpData.tell,
-      },
-      { withCredentials: true }
-    );
-    return response;
+        { withCredentials: true }
+      );
+      alert("사용 가능한 번호입니다.");
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("사용할 수 없는 번호입니다.");
+      }
+    }
   };
 
   const TellCheck = () => {
@@ -232,6 +238,7 @@ function SignUp() {
       <S.phonepass>확인</S.phonepass>
 
       <S.signup onClick={Submit}>회원가입</S.signup>
+      <S.none />
     </>
   );
 }
