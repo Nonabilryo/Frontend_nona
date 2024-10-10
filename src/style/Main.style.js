@@ -85,22 +85,54 @@ export const recommend = styled.div`
 export const articleContainer = styled.div`
   width: 90%;
   margin: auto;
+  margin-top: 8vw;
+`;
+
+export const showBox = styled.div`
+  z-index: 0;
+  width: 16.2vw;
+  height: 10.5vw;
+  position: absolute;
+  margin-top: 14.55vw;
+  border-bottom-left-radius: 0.6vw;
+  border-bottom-right-radius: 0.6vw;
+  box-shadow: inset 0 -0.08vw 0 0 #E1E1E1,
+    /* 아래쪽 */ inset -0.08vw 0 0 0 #E1E1E1,
+    /* 왼쪽 */ inset 0.08vw 0 0 0 #E1E1E1; /* 오른쪽 */
+`;
+
+export const tiText = styled.div`
+  font-size: 2.4vw;
+  font-family: pretendard-semibold;
+  position: absolute;
+  margin-top: -3.5vw;
+  margin-left: 1vw;
+`;
+
+export const divide = styled.div`
+  background-color: red;
+  position: absolute;
+  height: 0.1vw;
+  width: 100vw;
+  margin-left: -5vw;
+  margin-top: -7vw;
+  background-color: #c4c4c4;
 `;
 
 export const line = styled.ol`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 25vw;
+  height: 27vw;
   list-style-type: none;
   padding: 0;
+  margin-top: -1vw;
 `;
 
 export const article = styled.li`
   width: 18%;
   box-sizing: border-box;
-  border: 1px solid gray;
-  border-radius: 8px;
+  border-radius: 0.7vw;
   margin: 1%;
   display: flex;
   flex-wrap: wrap;
@@ -109,11 +141,11 @@ export const article = styled.li`
 
 export const image = styled.img`
   width: 100%;
-  height: 60%;
+  height: 58%;
   box-sizing: border-box;
   border-bottom: solid 0.5px black;
-  border-top-right-radius: 1vw;
-  border-top-left-radius: 1vw;
+  border-top-right-radius: 0.6vw;
+  border-top-left-radius: 0.6vw;
   margin-bottom: -4vw;
   text-align: center;
 `;
@@ -126,23 +158,33 @@ export const button = styled.button`
 export const title = styled.div`
   position: absolute;
   font-family: pretendard-semibold;
-  font-size: 1.2vw;
-  margin-top: 14vw;
-  margin-left: 1vw;
+  font-size: 1.1vw;
+  margin-top: 15.2vw;
   width: 15%;
+  margin-left: 0.5vw;
+  text-align: left;
 `;
 
 export const price = styled.div`
   position: absolute;
   font-family: pretendard-bold;
-  font-size: 1.5vw;
-  margin-top: 18vw;
-  margin-left: 4vw;
+  font-size: 1.4vw;
+  margin-top: 21vw;
+  margin-left: 2.9vw;
 `;
 
 export const unitt = styled.div`
   position: absolute;
   font-family: pretendard-regular;
-  margin-top: 18.3vw;
-  margin-left: 1vw;
+  margin-top: 21.3vw;
+  margin-left: 0.5vw;
+  font-size: 1vw;
+`;
+
+export const dateBefore = styled.div`
+  position: absolute;
+  margin-left: 12.5vw;
+  margin-top: 21.4vw;
+  font-size: 0.85vw;
+  color: #8f8f8f;
 `;
