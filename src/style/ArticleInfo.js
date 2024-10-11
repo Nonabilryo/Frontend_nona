@@ -1,5 +1,3 @@
 import styled from "styled-components";
 
-export const title = styled.div`
-    position: absolute;
-`;
+export const title = styled.div``;

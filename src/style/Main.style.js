@@ -96,9 +96,9 @@ export const showBox = styled.div`
   margin-top: 14.55vw;
   border-bottom-left-radius: 0.6vw;
   border-bottom-right-radius: 0.6vw;
-  box-shadow: inset 0 -0.08vw 0 0 #E1E1E1,
-    /* 아래쪽 */ inset -0.08vw 0 0 0 #E1E1E1,
-    /* 왼쪽 */ inset 0.08vw 0 0 0 #E1E1E1; /* 오른쪽 */
+  box-shadow: inset 0 -0.08vw 0 0 #e1e1e1,
+    /* 아래쪽 */ inset -0.08vw 0 0 0 #e1e1e1,
+    /* 왼쪽 */ inset 0.08vw 0 0 0 #e1e1e1; /* 오른쪽 */
 `;
 
 export const tiText = styled.div`
@@ -137,6 +137,7 @@ export const article = styled.li`
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const image = styled.img`
