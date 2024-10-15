@@ -144,7 +144,7 @@ export const image = styled.img`
   width: 100%;
   height: 58%;
   box-sizing: border-box;
-  border-bottom: solid 0.5px black;
+  border: solid 0.8px #e4e4e4;
   border-top-right-radius: 0.6vw;
   border-top-left-radius: 0.6vw;
   margin-bottom: -4vw;
