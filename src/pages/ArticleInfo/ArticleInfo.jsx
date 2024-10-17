@@ -155,7 +155,7 @@ const ArticleInfo = () => {
           src={writerData.imageUrl || userprofile}
           alt="작성자 프로필"
         />
-        <A.ProfileText>올린사람: {articleData.writer}</A.ProfileText>
+        <A.ProfileText>{articleData.writer}</A.ProfileText>
 
         <A.chatButton>채팅하기</A.chatButton>
       </A.Container>

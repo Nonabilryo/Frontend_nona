@@ -26,6 +26,7 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
+  z-index: 5;
 `;
 export const title1 = styled.div`
   text-align: right;
