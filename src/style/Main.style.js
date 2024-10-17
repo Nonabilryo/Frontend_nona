@@ -1,47 +1,46 @@
 import styled from "styled-components";
 
 export const all = styled`
-    position: absolute;
+  position: absolute;
+`;
+
+export const box = styled.div`
+  position: relative;
+  width: 100%;
+  height: 7vw;
+  z-index: 0;
 `;
 
 export const logo = styled.img`
   width: 6.3vw;
-  height: 6;
-  position: relative;
+  height: 6vw; /* height 수정 */
+  position: absolute;
   margin-left: 5vw;
   margin-top: 2.9vw;
-  position: absolute;
 `;
 
 export const search = styled.input`
   width: 50vw;
-  height: 4vw;
   height: 3.5vw;
   background: white;
   border-radius: 0.7vw;
-  border: 0.3vw #3bd15f solid;
-  margin-left: 17vw;
-  border: 0.2vw #3bd15f solid;
+  border: 0.2vw solid #3bd15f; /* border 색상 통일 */
   margin-left: 18vw;
   margin-top: 3.8vw;
   position: absolute;
 `;
 
 export const mypage = styled.img`
-  width: 3vw;
-  height: 3.5;
   width: 2.7vw;
-  height: 2.7vw;
+  height: 2.7vw; /* height 수정 */
   margin-left: 76vw;
   margin-top: 4.3vw;
   position: absolute;
 `;
 
 export const chat = styled.img`
-  width: 3vw;
-  height: 3.5;
   width: 2.7vw;
-  height: 2.7vw;
+  height: 2.7vw; /* height 수정 */
   margin-left: 84vw;
   margin-top: 4.3vw;
   position: absolute;
@@ -49,31 +48,8 @@ export const chat = styled.img`
 
 export const community = styled.img`
   width: 2.7vw;
-  height: 2.7vw;
+  height: 2.7vw; /* height 수정 */
   margin-left: 92vw;
-  margin-top: 4.5vw;
-  position: absolute;
-`;
-
-export const line1 = styled.img`
-  width: 0.2vw;
-  height: 2.8vw;
-  margin-left: 81.4vw;
-  width: 3vw;
-  height: 3.5;
-  width: 2.7vw;
-  height: 2.7vw;
-  margin-left: 92vw;
-  margin-top: 4.3vw;
-  margin-top: 4.5vw;
-  position: absolute;
-`;
-
-export const line2 = styled.img`
-  width: 0.2vw;
-
-  height: 2.8vw;
-  margin-left: 89.2vw;
   margin-top: 4.5vw;
   position: absolute;
 `;
@@ -95,14 +71,6 @@ export const delete_search = styled.img`
   margin-left: 61vw;
 `;
 
-export const main_line = styled.div`
-  width: 99.92vw;
-  margin-top: 10vw;
-  position: absolute;
-  border: 0.05vw #c4c4c4 solid;
-  z-index: 2;
-`;
-
 export const recommend = styled.div`
   color: black;
   font-size: 2.5vw;
@@ -117,83 +85,107 @@ export const recommend = styled.div`
 export const articleContainer = styled.div`
   width: 90%;
   margin: auto;
+  margin-top: 8vw;
+`;
+
+export const showBox = styled.div`
+  z-index: 0;
+  width: 16.2vw;
+  height: 10.5vw;
+  position: absolute;
+  margin-top: 14.55vw;
+  border-bottom-left-radius: 0.6vw;
+  border-bottom-right-radius: 0.6vw;
+  box-shadow: inset 0 -0.08vw 0 0 #e1e1e1,
+    /* 아래쪽 */ inset -0.08vw 0 0 0 #e1e1e1,
+    /* 왼쪽 */ inset 0.08vw 0 0 0 #e1e1e1; /* 오른쪽 */
+`;
+
+export const tiText = styled.div`
+  font-size: 2.4vw;
+  font-family: pretendard-semibold;
+  position: absolute;
+  margin-top: -3.5vw;
+  margin-left: 1vw;
+`;
+
+export const divide = styled.div`
+  background-color: red;
+  position: absolute;
+  height: 0.1vw;
+  width: 100vw;
+  margin-left: -5vw;
+  margin-top: -7vw;
+  background-color: #c4c4c4;
 `;
 
 export const line = styled.ol`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 27vw;
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin-top: -1vw;
 `;
+
 export const article = styled.li`
   width: 18%;
-  padding: 10px;
   box-sizing: border-box;
-  border: 1px solid gray;
-  border-radius: 8px;
+  border-radius: 0.7vw;
   margin: 1%;
   display: flex;
   flex-wrap: wrap;
-`;
-export const image = styled.img`
-  width: 100%;
-  height: auto;
-  height: 23vw;
-  box-sizing: border-box;
-  border: 1px solid #eeeeee;
-  border-top-right-radius: 1vw;
-  border-top-left-radius: 1vw;
-  margin-left: 1.3vw;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10vw;
-  margin-bottom: -4vw;
-  /* width: 16vw;
-  height: 13vw; */
+  text-align: center;
+  cursor: pointer;
 `;
 
-// todo 밑에 이거 수정
+export const image = styled.img`
+  width: 100%;
+  height: 58%;
+  box-sizing: border-box;
+  border: solid 0.8px #e4e4e4;
+  border-top-right-radius: 0.6vw;
+  border-top-left-radius: 0.6vw;
+  margin-bottom: -4vw;
+  text-align: center;
+`;
+
 export const button = styled.button`
   width: 100%;
   height: auto;
 `;
-// export const nav = styled.img`
-//   width: 50px;
-//   height: 50px;
-//   margin-left: 10px;
-// `;
-// export const navContainer = styled.div`
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: flex-end;
-// `;
-// `;
 
 export const title = styled.div`
   position: absolute;
   font-family: pretendard-semibold;
-  font-size: 1.2vw;
-  margin-top: 14vw;
-  margin-left: 1vw;
+  font-size: 1.1vw;
+  margin-top: 15.2vw;
   width: 15%;
+  margin-left: 0.5vw;
+  text-align: left;
 `;
 
 export const price = styled.div`
   position: absolute;
   font-family: pretendard-bold;
-  font-size: 1.5vw;
-  margin-top: 18vw;
-  margin-left: 4vw;
+  font-size: 1.4vw;
+  margin-top: 21vw;
+  margin-left: 2.9vw;
 `;
 
 export const unitt = styled.div`
   position: absolute;
   font-family: pretendard-regular;
-  margin-top: 18.3vw;
-  margin-left: 1vw;
+  margin-top: 21.3vw;
+  margin-left: 0.5vw;
+  font-size: 1vw;
+`;
+
+export const dateBefore = styled.div`
+  position: absolute;
+  margin-left: 12.5vw;
+  margin-top: 21.4vw;
+  font-size: 0.85vw;
+  color: #8f8f8f;
 `;

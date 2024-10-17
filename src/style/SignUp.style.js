@@ -5,7 +5,7 @@ export const cover = styled.div`
   width: 100vw;
   height: 6vw;
   position: absolute;
-  z-index: 0;
+  z-index: 3;
   margin-bottom: 10vw;
 `;
 
@@ -18,6 +18,7 @@ export const back = styled.div`
   background: #3ddc63;
   margin-left: 46.9vw;
   top: -43vw;
+  z-index: 4;
 `;
 export const cart = styled.img`
   position: absolute;
@@ -25,6 +26,7 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
+  z-index: 5;
 `;
 export const title1 = styled.div`
   text-align: right;
@@ -37,6 +39,7 @@ export const title1 = styled.div`
   position: absolute;
   width: 12.7vw;
   height: 3vw;
+  z-index: 4;
 `;
 export const title2 = styled.div`
   text-align: right;
@@ -49,6 +52,7 @@ export const title2 = styled.div`
   margin-top: 4.7vw;
   width: 13.3vw;
   height: 3.8vw;
+  z-index: 4;
 `;
 export const title3 = styled.div`
   text-align: right;
@@ -62,6 +66,7 @@ export const title3 = styled.div`
   margin-top: 5.2vw;
   width: 8.7vw;
   height: 3.3vw;
+  z-index: 4;
 `;
 export const nickcheck = styled.button`
   width: 9vw;
@@ -77,6 +82,7 @@ export const nickcheck = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const nickbox = styled.input`
   &::placeholder {
@@ -149,6 +155,7 @@ export const emailcheck = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const emailicertinum = styled.input`
   &::placeholder {
@@ -185,6 +192,7 @@ export const emailpass = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 export const passwordbox = styled.input`
   &::placeholder {
@@ -257,6 +265,7 @@ export const numcertifi = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 export const phonecertinum = styled.input`
@@ -294,6 +303,7 @@ export const phonepass = styled.button`
   font-family: Pretendard;
   position: absolute;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 export const signup = styled.button`
@@ -309,4 +319,11 @@ export const signup = styled.button`
   background: #3ddc63;
   color: white;
   font-size: 2vw;
+  cursor: pointer;
+`;
+
+export const none = styled.div`
+  width: 100%;
+  height: 5vw;
+  position: relative;
 `;

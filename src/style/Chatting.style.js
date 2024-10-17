@@ -5,6 +5,16 @@ export const all = styled.div`
   height: calc(100vh - 13vh);
   display: flex;
   justify-content: center;
+  margin-top: 6.5vw;
+`;
+
+export const mainLine = styled.div`
+  margin-top: -0.1vw;
+  z-index: 2;
+  width: 100vw;
+  height: 0.1vw;
+  position: absolute;
+  background-color: #C4C4C4;
 `;
 
 export const middle = styled.div`
@@ -111,6 +121,36 @@ height: 13vh;
 display: flex;
 align-items: center;
 justify-content: center;
+`;
+
+export const SendChatArea = styled.div`
+border: 1px solid #C4C4C4;
+display: flex;
+align-items: center;
+border-radius: 7px;
+padding-right: 0.5vw;
+`;
+
+export const SendChat = styled.input`
+width: 37vw;
+height: 5vh;
+border: none;
+outline: none;
+border-radius: 7px;
+padding-left: 1vw;
+padding-right: 1vw;
+`;
+
+export const sendBtn = styled.button`
+border: none;
+background: none;
+&:hover{
+  cursor: pointer;
+}
+`;
+
+export const SendImg = styled.img`
+width: 1.5vw;
 `;
 
 export const middleMiddle = styled.div`

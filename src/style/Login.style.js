@@ -9,7 +9,7 @@ export const cover = styled.div`
   width: 100vw;
   height: 6vw;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   margin-bottom: 10vw;
 `;
 
@@ -22,7 +22,7 @@ export const back = styled.div`
   background: #3ddc63;
   margin-left: 46.9vw;
   top: -43vw;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const cart = styled.img`
@@ -31,7 +31,7 @@ export const cart = styled.img`
   height: 34vw;
   margin-top: 15vw;
   margin-left: 5.2vw;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const title1 = styled.div`
@@ -45,7 +45,7 @@ export const title1 = styled.div`
   position: absolute;
   width: 12.7vw;
   height: 3vw;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const title2 = styled.div`
@@ -128,6 +128,7 @@ export const googlelogin = styled.button`
   border: 0.15vw #efefef solid;
   margin-top: 28.3vw;
   margin-left: 56.5vw;
+  cursor: pointer;
 `;
 
 export const googlelogo = styled.img`
@@ -152,6 +153,7 @@ export const login = styled.button`
   position: absolute;
   margin-top: 34.6vw;
   margin-left: 56.5vw;
+  cursor: pointer;
 `;
 
 export const signup = styled.text`
@@ -164,6 +166,7 @@ export const signup = styled.text`
   margin-top: 43.1vw;
   margin-left: 67.8vw;
   width: 13.2vw;
+  cursor: pointer;
 `;
 
 export const divideline = styled.div`
@@ -185,6 +188,7 @@ export const searchid = styled.text`
   position: absolute;
   margin-top: 46.2vw;
   margin-left: 65.5vw;
+  cursor: pointer;
 `;
 
 export const searchpassword = styled.text`
@@ -196,4 +200,5 @@ export const searchpassword = styled.text`
   position: absolute;
   margin-top: 46.2vw;
   margin-left: 76.4vw;
+  cursor: pointer;
 `;
