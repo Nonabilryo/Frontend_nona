@@ -26,4 +26,4 @@ const SendChatInput = ({ inputMessage, setInputMessage, sendMessage, userIdx, re
   );
 };
 
-export default SendChatInput
+export default SendChatInput;
