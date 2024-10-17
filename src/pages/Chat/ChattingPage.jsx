@@ -6,42 +6,66 @@ import searchImg from "../../assets/img/searchGray.svg";
 import mapImg from "../../assets/img/map.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
 import { useLocation } from "react-router-dom";
+import { Client } from '@stomp/stompjs';import SockJS from 'sockjs-client';
 import axios from "axios";
+import CONFIG from "../../config/config.json"
 
 const ChattingPage = () => {
   const token = localStorage.getItem("accessToken");
-  const [userName, setUserName] = useState("");
+  const [userIdx, setUserIdx] = useState(null);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const location = useLocation();
-  const userIdx = localStorage.getItem("userIdx");
-  const receiverIdx = location.state?.receiverIdx;
+  const [receiverIdx, setReceiverIdx] = useState(location.state?.receiverIdx || null);
+  
+  const socket = new SockJS(`${CONFIG.SERVER}/chat/ws`); // WebSocket URL로 변경
+  const stompClient = Client.over(socket);
+
   useEffect(() => {
-    const getUserName = async () => {
+    const fetchUserIdx = async () => {
       try {
-        const response = await axios.get("/user/{}", {
+        const response = await axios.get("/user", {
           headers: {
             Authorization: `${token}`,
           },
         });
-        setUserName(response.data.name);
-        console.log(setUserName)
+        setUserIdx(response.data.idx); // 서버 응답에서 idx 값을 설정
       } catch (error) {
-        console.error("유저 이름을 가져오는데 실패했습니다.", error);
+        console.error("유저 정보를 가져오는 도중 오류 발생:", error);
       }
     };
-    getUserName();
+    fetchUserIdx(); // userIdx를 가져오는 함수 호출
   }, [token]);
 
+  const updateReceiverIdx = (newReceiverIdx) => {
+    setReceiverIdx(newReceiverIdx);
+  };
+
   const sendMessage = () => {
+    const message = inputMessage;
+    const receiver = receiverIdx;
+
+    stompClient.send(`/app/${receiver}`, {}, JSON.stringify({
+      sender: userIdx,          // 본인의 idx
+      receiver: receiver,       // 상대방의 idx
+      contentType: "MESSAGE",   // 메시지 타입
+      content: message          // 메시지 내용
+    }));
+
     const newMessage = {
-      sender: userName,
-      content: inputMessage,
+      sender: userIdx,
+      content: message,
       timestamp: new Date().toLocaleTimeString(),
     };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     setInputMessage("");
   }
+
+  const changeReceiver = () => {
+    const newReceiverIdx = setReceiverIdx;
+    updateReceiverIdx(newReceiverIdx); // 새로운 수신자 인덱스 설정
+  };
+
   return (
     <>
       <S.all>
