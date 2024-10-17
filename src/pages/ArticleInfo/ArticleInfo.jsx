@@ -133,7 +133,7 @@ const ArticleInfo = () => {
       try {
         const response = await axios.get(`${CONFIG.SERVER}/user`, {
           headers: {
-            Authorization: accessToken,
+            Authorization: `${accessToken}`,
           },
           withCredentials: true,
         });
@@ -155,7 +155,7 @@ const ArticleInfo = () => {
       if (userIdx) {
         client.subscribe(`/topic/${userIdx}`, () => {
         }, {
-          Authorization: accessToken
+          Authorization: `${accessToken}`
         });
       }
     }, (error) => {
