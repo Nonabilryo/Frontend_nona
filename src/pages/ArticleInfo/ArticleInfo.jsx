@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Client } from '@stomp/stompjs';
 import axios from "axios";
 import * as A from "../../style/ArticleInfo";
 import CONFIG from "../../config/config.json";
@@ -7,7 +8,6 @@ import userprofile from "../../assets/img/userprofile.png"; // 기본 프로필 
 import left from "../../assets/img/left.svg";
 import right from "../../assets/img/right.svg";
 import SockJS from 'sockjs-client';
-import { Client } from '@stomp/stompjs';
 
 const ArticleInfo = () => {
   const navigate = useNavigate();
