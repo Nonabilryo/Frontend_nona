@@ -6,7 +6,8 @@ import searchImg from "../../assets/img/searchGray.svg";
 import mapImg from "../../assets/img/map.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
 import { useLocation } from "react-router-dom";
-import { Client } from '@stomp/stompjs';import SockJS from 'sockjs-client';
+import { Client } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
 import axios from "axios";
 import CONFIG from "../../config/config.json"
 
