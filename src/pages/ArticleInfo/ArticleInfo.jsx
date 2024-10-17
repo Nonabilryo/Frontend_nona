@@ -12,7 +12,7 @@ import { Client } from '@stomp/stompjs';
 const ArticleInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const token = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem('accessToken')
 
   const [articleData, setArticleData] = useState({
     title: "",
@@ -133,7 +133,7 @@ const ArticleInfo = () => {
       try {
         const response = await axios.get(`${CONFIG.SERVER}/user`, {
           headers: {
-            Authorization: 'accessToken',
+            Authorization: accessToken,
           },
           withCredentials: true,
         });
@@ -144,7 +144,7 @@ const ArticleInfo = () => {
     };
 
     fetchUserIdx();
-  }, ['accessToken']); // Authorization이 변경될 때마다 다시 요청
+  }, [accessToken]); // Authorization이 변경될 때마다 다시 요청
 
   const connectWebSocket = () => {
     const socket = new SockJS("http://localhost:8080/chat/ws");
@@ -155,7 +155,7 @@ const ArticleInfo = () => {
       if (userIdx) {
         client.subscribe(`/topic/${userIdx}`, () => {
         }, {
-          Authorization: 'accessToken'
+          Authorization: accessToken
         });
       }
     }, (error) => {
