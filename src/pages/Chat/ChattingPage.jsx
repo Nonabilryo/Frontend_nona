@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "../../style/Chatting.style";
+import SendChatInput from "../../constants/SendChatInput";
 import userImg from "../../assets/img/user.svg";
 import searchImg from "../../assets/img/searchGray.svg";
 import mapImg from "../../assets/img/map.svg";
-import SendImg from "../../assets/img/send.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
+import axios from "axios";
 
 const ChattingPage = () => {
+  const token = localStorage.getItem("accessToken");
+  const [userName, setUserName] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState("");
+  useEffect(() => {
+    const getUserName = async () => {
+      try {
+        const response = await axios.get("/user/{}", {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
+        setUserName(response.data.name);
+        console.log(setUserName)
+      } catch (error) {
+        console.error("유저 이름을 가져오는데 실패했습니다.", error);
+      }
+    };
+
+    getUserName();
+  }, []);
   return (
     <>
       <S.all>
@@ -43,12 +65,7 @@ const ChattingPage = () => {
           </S.middleTop>
           <S.middleMiddle></S.middleMiddle>
           <S.middleBottom>
-            <S.SendChatArea>
-              <S.SendChat type="text" placeholder="메시지를 입력하세요." />
-              <S.searchBtn>
-                <S.SendImg src={SendImg} />
-              </S.searchBtn>
-            </S.SendChatArea>
+          <SendChatInput />
           </S.middleBottom>
         </S.middle>
         <S.frontNlast>
