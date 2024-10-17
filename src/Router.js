@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import isAuth from "./util/isAuth";
 import Nav from "./pages/Nav/Nav";
 import PostArticle from "./pages/PostArticle/PostArticle";
-import DetailPage from "./pages/Detail/DetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ChattingPage from "./pages/Chat/ChattingPage";
 
@@ -31,7 +30,6 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route exact path="/article/post" element={<PostArticle />} />
-        <Route exact path="/detail" element={<DetailPage />} />
         <Route exact path="/mypage" element={<MyPage />} />
         <Route path="/article/:id" element={<ArticleInfo />} />
         <Route path="/login/success" element={<LoginSuccess />} />
