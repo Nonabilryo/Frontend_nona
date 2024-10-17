@@ -26,9 +26,18 @@ const ChattingPage = () => {
         console.error("유저 이름을 가져오는데 실패했습니다.", error);
       }
     };
-
     getUserName();
-  }, []);
+  }, [token]);
+
+  const sendMessage = () => {
+    const newMessage = {
+      sender: userName,
+      content: inputMessage,
+      timestamp: new Date().toLocaleTimeString(),
+    };
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    setInputMessage("");
+  }
   return (
     <>
       <S.all>
@@ -63,7 +72,17 @@ const ChattingPage = () => {
               </div>
             </S.UserWhere>
           </S.middleTop>
-          <S.middleMiddle></S.middleMiddle>
+          <S.middleMiddle>
+          {messages.map((msg, index) => (
+            <div key={index}>
+            <strong>{msg.sender}: </strong>
+            <span>{msg.content}</span>
+            <span style={{ color: "#8F8F8F", fontSize: "12px", marginLeft: "5px" }}>
+              {msg.timestamp}
+            </span>
+          </div>
+        ))}
+          </S.middleMiddle>
           <S.middleBottom>
           <SendChatInput />
           </S.middleBottom>
