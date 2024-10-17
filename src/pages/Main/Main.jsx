@@ -74,10 +74,54 @@ const Main = ({ isLogin }) => {
     }
   };
 
+  const timeAgo = (date) => {
+    const now = new Date();
+    const createdAt = new Date(date);
+    const diffInSeconds = Math.floor((now - createdAt) / 1000);
+
+    const minutes = Math.floor(diffInSeconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(days / 365);
+
+    switch (true) {
+      case years > 0:
+        return `${years}년 전`;
+      case months > 0:
+        return `${months}개월 전`;
+      case days > 0:
+        return `${days}일 전`;
+      case hours > 0:
+        return `${hours}시간 전`;
+      case minutes > 0:
+        return `${minutes}분 전`;
+      default:
+        return `방금 전`;
+    }
+  };
+
+  const textLengthOverCut = (txt, len, lastTxt) => {
+    if (len == "" || len == null) {
+      // 기본값
+      len = 20;
+    }
+    if (lastTxt == "" || lastTxt == null) {
+      // 기본값
+      lastTxt = "...";
+    }
+    if (txt.length > len) {
+      txt = txt.substr(0, len) + lastTxt;
+    }
+    return txt; // 'return txt;'로 수정
+  };
+
   return (
     <>
       <M.box />
       <M.articleContainer>
+        <M.divide />
+        <M.tiText>상품 추천</M.tiText>
         {ChunkArray(articlesData.articles, 5).map((chunk, chunkIndex) => (
           <M.line key={chunkIndex}>
             {chunk.map((article, index) => (
@@ -86,11 +130,15 @@ const Main = ({ isLogin }) => {
                 id={article.idx}
                 name="article"
                 onClick={ArticleClickHandler}>
+                <M.showBox />
                 <M.image src={article.image.url} alt="Image" />
-                <p>{renderRentalType(article.rentalType)}</p>
-                <M.title>{article.title}</M.title>
+                <M.title>
+                  {textLengthOverCut(article.title, 38, "…")}
+                </M.title>{" "}
+                {/* 글자 제한 적용 */}
                 <M.price>{article.price}원</M.price>
                 <M.unitt>{renderRentalType(article.rentalType)}</M.unitt>
+                <M.dateBefore>{timeAgo(article.createdAt)}</M.dateBefore>
               </M.article>
             ))}
           </M.line>

@@ -5,7 +5,7 @@ import axios from "axios";
 import * as A from "../../style/ArticleInfo";
 import CONFIG from "../../config/config.json";
 import userprofile from "../../assets/img/userprofile.png"; // 기본 프로필 이미지
-import left from "../../assets/img/Line.svg";
+import left from "../../assets/img/left.svg";
 import right from "../../assets/img/right.svg";
 import SockJS from 'sockjs-client';
 
@@ -203,7 +203,7 @@ const ArticleInfo = () => {
           src={writerData.imageUrl || userprofile}
           alt="작성자 프로필"
         />
-        <A.ProfileText>올린사람: {articleData.writer}</A.ProfileText>
+        <A.ProfileText>{articleData.writer}</A.ProfileText>
 
         <A.chatButton onClick={handleChatClick}>채팅하기</A.chatButton>
       </A.Container>
