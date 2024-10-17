@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Client } from '@stomp/stompjs';
 import axios from "axios";
 import * as A from "../../style/ArticleInfo";
 import CONFIG from "../../config/config.json";
 import userprofile from "../../assets/img/userprofile.png"; // 기본 프로필 이미지
 import left from "../../assets/img/left.svg";
 import right from "../../assets/img/right.svg";
+import SockJS from 'sockjs-client';
 
 const ArticleInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const accessToken = localStorage.getItem('accessToken')
 
   const [articleData, setArticleData] = useState({
     title: "",
@@ -122,6 +125,51 @@ const ArticleInfo = () => {
     );
   };
 
+  const [stompClient, setStompClient] = useState(null);
+  const [userIdx, setUserIdx] = useState(null);
+
+  useEffect(() => {
+    const fetchUserIdx = async () => {
+      try {
+        const response = await axios.get(`${CONFIG.SERVER}/user`, {
+          headers: {
+            Authorization: `${accessToken}`,
+          },
+          withCredentials: true,
+        });
+        setUserIdx(response.data.idx); // 응답에서 idx 값을 설정
+      } catch (error) {
+        console.error("유저 정보를 가져오는 도중 오류 발생:", error);
+      }
+    };
+
+    fetchUserIdx();
+  }, [accessToken]); // Authorization이 변경될 때마다 다시 요청
+
+  const connectWebSocket = () => {
+    const socket = new SockJS("http://localhost:8080/chat/ws");
+    const client = Client.over(socket);
+    
+    client.connect({}, (frame) => {
+      console.log("Connected: " + frame);
+      if (userIdx) {
+        client.subscribe(`/topic/${userIdx}`, () => {
+        }, {
+          Authorization: `${accessToken}`
+        });
+      }
+    }, (error) => {
+      console.error("Connection error: ", error);
+    });
+
+    setStompClient(client);
+  };
+
+  const handleChatClick = () => {
+    connectWebSocket();
+    navigate(`/chatting/${writerData.idx}`, { state: { receiverIdx: writerData.idx } });
+  };
+
   return (
     <>
       <A.Container>
@@ -157,7 +205,7 @@ const ArticleInfo = () => {
         />
         <A.ProfileText>{articleData.writer}</A.ProfileText>
 
-        <A.chatButton>채팅하기</A.chatButton>
+        <A.chatButton onClick={handleChatClick}>채팅하기</A.chatButton>
       </A.Container>
       <A.bottom />
     </>
