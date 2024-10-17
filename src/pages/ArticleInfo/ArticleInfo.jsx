@@ -167,7 +167,7 @@ const ArticleInfo = () => {
 
   const handleChatClick = () => {
     connectWebSocket();
-    navigate(`/chatting/${writerData.idx}`)
+    navigate(`/chatting/${writerData.idx}`, { state: { receiverIdx: writerData.idx } });
   };
 
   return (
