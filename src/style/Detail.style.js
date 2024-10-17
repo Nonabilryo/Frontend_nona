@@ -11,7 +11,7 @@ export const Back = styled.div`
 
 export const PImg = styled.img`
   width: 43vw;
-  margin-top: 9.5vh;
+  margin-top: 20vh;
 `;
 
 export const ImgUnder = styled.div`
@@ -24,7 +24,19 @@ export const User = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-width: 7.7vw;
+width: 7vw;
+
+`;
+
+export const usImg = styled.img`
+  width: 3vw;
+  position: absolute;
+`;
+
+export const us = styled.div`
+  position: absolute;
+  margin-left: 4vw;
+  font-family: pretendard;
 `;
 
 export const Map = styled.div`
@@ -36,7 +48,7 @@ width: 9vw;
 
 export const Line = styled.div`
   border-bottom: 1.5px solid #E4E4E4;
-  margin-top: 4vh;
+  margin-top: 1.2vw;
 `;
 
 export const Content = styled.div`
@@ -44,11 +56,11 @@ height: 24vh;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-margin-top: 6vh;
+margin-top: 5vh;
 `;
 
 export const DetailContent = styled.div`
-height: 15vh;
+height: 12.6vh;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -60,7 +72,7 @@ justify-content: center;
 `;
 
 export const GoChat = styled.button`
-width: 28vw;
+width: 50vw;
 height: 6.5vh;
 border-radius: 10px;
 border: none;
