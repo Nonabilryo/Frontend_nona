@@ -3,6 +3,16 @@ import * as S from "../style/SendChatInput.style";
 import SendImg from "../assets/img/send.svg";
 
 const SendChatInput = ({ inputMessage, setInputMessage, sendMessage }) => {
+  if (!inputMessage) return; // 빈 메시지 전송 방지
+
+    const messageData = {
+      sender: userIdx, // 본인의 idx
+      receiver: receiverIdx, // 상대방 idx
+      contentType: "MESSAGE",
+      content: inputMessage,
+    };
+    stompClient.send(`/app/${receiverIdx}`, {}, JSON.stringify(messageData));
+    setInputMessage("");
   return (
     <S.SendChatArea>
       <S.SendChat

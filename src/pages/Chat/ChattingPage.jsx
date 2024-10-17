@@ -5,6 +5,7 @@ import userImg from "../../assets/img/user.svg";
 import searchImg from "../../assets/img/searchGray.svg";
 import mapImg from "../../assets/img/map.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 const ChattingPage = () => {
@@ -12,6 +13,9 @@ const ChattingPage = () => {
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
+  const location = useLocation();
+  const userIdx = localStorage.getItem("userIdx");
+  const receiverIdx = location.state?.receiverIdx;
   useEffect(() => {
     const getUserName = async () => {
       try {
@@ -84,7 +88,10 @@ const ChattingPage = () => {
         ))}
           </S.middleMiddle>
           <S.middleBottom>
-          <SendChatInput />
+          <SendChatInput 
+          inputMessage={inputMessage} 
+          setInputMessage={setInputMessage} 
+          sendMessage={sendMessage}/>
           </S.middleBottom>
         </S.middle>
         <S.frontNlast>
