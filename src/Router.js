@@ -10,6 +10,7 @@ import Nav from "./pages/Nav/Nav";
 import PostArticle from "./pages/PostArticle/PostArticle";
 import MyPage from "./pages/MyPage/MyPage";
 import ChattingPage from "./pages/Chat/ChattingPage";
+import ChattingRoom from "./constants/ChattingRoom";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(null);
