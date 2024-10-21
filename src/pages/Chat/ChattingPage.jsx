@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "../../style/Chatting.style";
-import SendChatInput from "../../constants/SendChatInput";
-import userImg from "../../assets/img/user.svg";
+import ChattingRoom from "../../constants/ChattingRoom.jsx";
 import searchImg from "../../assets/img/searchGray.svg";
-import mapImg from "../../assets/img/map.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
 import { useLocation } from "react-router-dom";
 import { Client } from '@stomp/stompjs';
@@ -18,9 +16,38 @@ const ChattingPage = () => {
   const [inputMessage, setInputMessage] = useState("");
   const location = useLocation();
   const [receiverIdx, setReceiverIdx] = useState(location.state?.receiverIdx || null);
-  
-  const socket = new SockJS(`${CONFIG.SERVER}/chat/ws`); // WebSocket URL로 변경
-  const stompClient = Client.over(socket);
+  const [stompClient, setStompClient] = useState(null);
+
+  useEffect(() => {
+    const socket = new SockJS(`${CONFIG.SERVER}/chat/ws`);
+    const client = new Client({
+      webSocketFactory: () => socket,
+      debug: (str) => console.log(str),
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000,
+    });
+
+    client.onConnect = (frame) => {
+      console.log('Connected: ' + frame);
+      // 유저 idx 구독
+      client.subscribe(`/user/${userIdx}/messages`, (message) => {
+        const msg = JSON.parse(message.body);
+        setMessages((prevMessages) => [...prevMessages, msg]);
+      }, {
+        headers: {
+          Authorization: token, // Authorization 헤더 추가
+        },
+      });
+    };
+
+    client.activate();
+    setStompClient(client);
+
+    return () => {
+      client.deactivate();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchUserIdx = async () => {
@@ -81,44 +108,7 @@ const ChattingPage = () => {
             </S.searchArea>
           </S.frontTop>
         </S.frontNlast>
-        <S.middle>
-          <S.middleTop>
-            <S.UserInfo>
-              <S.userImg src={userImg} />
-              <S.UserInfoText>
-                <div style={{ fontSize: "16px", fontWeight: "600" }}>
-                  문가인(가인님)
-                </div>
-                <div style={{ color: "#8F8F8F", fontSize: "13px" }}>
-                  활동 중
-                </div>
-              </S.UserInfoText>
-            </S.UserInfo>
-            <S.UserWhere>
-              <S.MapImg src={mapImg} />
-              <div style={{ color: "#8F8F8F", fontSize: "13px" }}>
-                대구 달성군 구지면
-              </div>
-            </S.UserWhere>
-          </S.middleTop>
-          <S.middleMiddle>
-          {messages.map((msg, index) => (
-            <div key={index}>
-            <strong>{msg.sender}: </strong>
-            <span>{msg.content}</span>
-            <span style={{ color: "#8F8F8F", fontSize: "12px", marginLeft: "5px" }}>
-              {msg.timestamp}
-            </span>
-          </div>
-        ))}
-          </S.middleMiddle>
-          <S.middleBottom>
-          <SendChatInput 
-          inputMessage={inputMessage} 
-          setInputMessage={setInputMessage} 
-          sendMessage={sendMessage}/>
-          </S.middleBottom>
-        </S.middle>
+        <ChattingRoom />
         <S.frontNlast>
           <S.productArea>
             <S.DummyImg src={dummyImg} />
