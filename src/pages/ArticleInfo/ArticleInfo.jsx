@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Client } from '@stomp/stompjs';
+import { Client } from "@stomp/stompjs";
 import axios from "axios";
 import * as A from "../../style/ArticleInfo";
 import CONFIG from "../../config/config.json";
 import userprofile from "../../assets/img/userprofile.png"; // 기본 프로필 이미지
 import left from "../../assets/img/left.svg";
 import right from "../../assets/img/right.svg";
-import SockJS from 'sockjs-client';
+import SockJS from "sockjs-client";
 
 const ArticleInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem("accessToken");
 
   const [articleData, setArticleData] = useState({
     title: "",
@@ -149,25 +149,30 @@ const ArticleInfo = () => {
   const connectWebSocket = () => {
     const socket = new SockJS("http://localhost:8080/chat/ws");
     const client = Client.over(socket);
-    
-    client.connect({}, (frame) => {
-      console.log("Connected: " + frame);
-      if (userIdx) {
-        client.subscribe(`/topic/${userIdx}`, () => {
-        }, {
-          Authorization: `${accessToken}`
-        });
+
+    client.connect(
+      {},
+      (frame) => {
+        console.log("Connected: " + frame);
+        if (userIdx) {
+          client.subscribe(`/topic/${userIdx}`, () => {}, {
+            Authorization: `${accessToken}`,
+          });
+        }
+      },
+      (error) => {
+        console.error("Connection error: ", error);
       }
-    }, (error) => {
-      console.error("Connection error: ", error);
-    });
+    );
 
     setStompClient(client);
   };
 
   const handleChatClick = () => {
     connectWebSocket();
-    navigate(`/chatting/${writerData.idx}`, { state: { receiverIdx: writerData.idx } });
+    navigate(`/chatting/${writerData.idx}`, {
+      state: { receiverIdx: writerData.idx },
+    });
   };
 
   return (
@@ -176,14 +181,24 @@ const ArticleInfo = () => {
         <A.divide />
         <A.Title>{articleData.title}</A.Title>
         <A.ImageContainer>
-          <A.LeftButton img src={left} onClick={handlePrevious} alt="이전 이미지" />
+          <A.LeftButton
+            img
+            src={left}
+            onClick={handlePrevious}
+            alt="이전 이미지"
+          />
           {articleData.images.length > 0 && (
             <A.Image
               src={articleData.images[currentImageIndex].url}
               alt="상품 이미지"
             />
           )}
-          <A.RightButton img src={right} onClick={handleNext} alt="다음 이미지" />
+          <A.RightButton
+            img
+            src={right}
+            onClick={handleNext}
+            alt="다음 이미지"
+          />
         </A.ImageContainer>
 
         <A.InfoContainer>

@@ -12,7 +12,6 @@ function MyPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const accessToken = localStorage.getItem("accessToken");
-
   const [userData, setUserData] = useState({
     idx: "",
     name: "",
@@ -49,6 +48,7 @@ function MyPage() {
       }
     }
   };
+
 
   return (
     <>
