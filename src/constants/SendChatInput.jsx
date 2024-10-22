@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "../style/SendChatInput.style";
 import SendImg from "../assets/img/send.svg";
 
-const SendChatInput = ({ inputMessage, setInputMessage, sendMessage, userIdx, receiverIdx }) => {
-  if (!inputMessage) return null;
+const SendChatInput = ({ sendMessage }) => {
+  const [message, setMessage] = useState('');
 
-  const handleSend = () => {
-    // 메시지를 전송할 때 userIdx와 receiverIdx를 sendMessage에 전달
-    sendMessage(userIdx, receiverIdx, inputMessage);
-    setInputMessage(""); // 메시지 전송 후 입력란 비우기
-  };
+    const handleSendMessage = () => {
+        if (message.trim()) {
+            sendMessage(message);  // 상위 컴포넌트에서 전달받은 전송 함수 호출
+            setMessage('');  // 메시지 전송 후 입력 필드 초기화
+        }
+    };
 
   return (
     <S.SendChatArea>
       <S.SendChat
         type="text"
         placeholder="메시지를 입력하세요."
-        value={inputMessage}
-        onChange={(e) => setInputMessage(e.target.value)} // 입력 값 업데이트
+        value={message}
+        onChange={(e) => setMessage(e.target.value)} // 입력 값 업데이트
       />
-      <S.sendBtn onClick={handleSend}>
+      <S.sendBtn onClick={handleSendMessage}>
         <S.SendImg src={SendImg} />
       </S.sendBtn>
     </S.SendChatArea>

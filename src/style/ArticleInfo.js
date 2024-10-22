@@ -109,6 +109,7 @@ export const ProfileImage = styled.img`
   position: absolute;
   margin-left: 175px;
   margin-top: 30px;
+  cursor: pointer;
 `;
 
 export const ProfileText = styled.p`
@@ -117,7 +118,9 @@ export const ProfileText = styled.p`
   font-weight: 500;
   margin-left: 240px;
   margin-top: 40px;
+  font-weight: 600;
   position: absolute;
+  cursor: pointer;
 `;
 
 export const divide = styled.div`

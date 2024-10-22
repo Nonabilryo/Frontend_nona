@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Client } from "@stomp/stompjs";
+
 import axios from "axios";
 import * as A from "../../style/ArticleInfo";
 import CONFIG from "../../config/config.json";
@@ -17,6 +18,7 @@ const ArticleInfo = () => {
   const [articleData, setArticleData] = useState({
     title: "",
     images: [],
+    writerIdx: "",
     writer: "",
     category: "",
     description: "",
@@ -45,6 +47,7 @@ const ArticleInfo = () => {
       setArticleData({
         title: response.data.data.title,
         images: response.data.data.images,
+        writerIdx: response.data.data.writerIdx,
         writer: response.data.data.writer,
         category: response.data.data.category,
         description: response.data.data.description,
@@ -54,7 +57,7 @@ const ArticleInfo = () => {
       });
 
       const writerDataResponse = await axios.get(
-        `${CONFIG.SERVER}/user/${response.data.data.writer}`,
+        `${CONFIG.SERVER}/user/${response.data.data.writerIdx}`,
         { withCredentials: true }
       );
       setWriterData(writerDataResponse.data.data);
@@ -173,58 +176,68 @@ const ArticleInfo = () => {
     navigate(`/chatting/${writerData.idx}`, {
       state: { receiverIdx: writerData.idx },
     });
-  };
+    const handleChatClick = () => {
+      if (articleData.writerIdx) {
+        // writerData.idx가 존재할 때만 실행
+        navigate(`/chat/${articleData.writerIdx}`, {
+          state: { receiverIdx: articleData.writerIdx },
+        });
+      } else {
+        console.error("작성자의 idx가 설정되지 않았습니다.");
+      }
+    };
 
-  return (
-    <>
-      <A.Container>
-        <A.divide />
-        <A.Title>{articleData.title}</A.Title>
-        <A.ImageContainer>
-          <A.LeftButton
-            img
-            src={left}
-            onClick={handlePrevious}
-            alt="이전 이미지"
-          />
-          {articleData.images.length > 0 && (
-            <A.Image
-              src={articleData.images[currentImageIndex].url}
-              alt="상품 이미지"
+    return (
+      <>
+        <A.Container>
+          <A.divide />
+          <A.Title>{articleData.title}</A.Title>
+          <A.ImageContainer>
+            <A.LeftButton
+              img
+              src={left}
+              onClick={handlePrevious}
+              alt="이전 이미지"
             />
-          )}
-          <A.RightButton
-            img
-            src={right}
-            onClick={handleNext}
-            alt="다음 이미지"
+            {articleData.images.length > 0 && (
+              <A.Image
+                src={articleData.images[currentImageIndex].url}
+                alt="상품 이미지"
+              />
+            )}
+            <A.RightButton
+              img
+              src={right}
+              onClick={handleNext}
+              alt="다음 이미지"
+            />
+          </A.ImageContainer>
+
+          <A.InfoContainer>
+            {/* 카테고리 */}
+            <A.InfoCate>카테고리 - {articleData.category}</A.InfoCate>
+            {/* 설명 */}
+            <A.InfoText>{articleData.description}</A.InfoText>
+            {/* 가격 */}
+            <A.Price>{articleData.price}원</A.Price>
+            {/* 날짜 단위 */}
+            <A.InfoType>{renderRentalType(articleData.rentalType)}</A.InfoType>
+            {/* 몇 시간 전 */}
+            <A.InfoDate>{timeAgo(articleData.createdAt)}</A.InfoDate>
+          </A.InfoContainer>
+          <A.divide2 />
+          <A.ProfileImage
+            src={writerData.imageUrl || userprofile}
+            alt="작성자 프로필"
           />
-        </A.ImageContainer>
+          <A.ProfileText>{articleData.writer}</A.ProfileText>
 
-        <A.InfoContainer>
-          {/* 카테고리 */}
-          <A.InfoCate>카테고리 - {articleData.category}</A.InfoCate>
-          {/* 설명 */}
-          <A.InfoText>{articleData.description}</A.InfoText>
-          {/* 가격 */}
-          <A.Price>{articleData.price}원</A.Price>
-          {/* 날짜 단위 */}
-          <A.InfoType>{renderRentalType(articleData.rentalType)}</A.InfoType>
-          {/* 몇 시간 전 */}
-          <A.InfoDate>{timeAgo(articleData.createdAt)}</A.InfoDate>
-        </A.InfoContainer>
-        <A.divide2 />
-        <A.ProfileImage
-          src={writerData.imageUrl || userprofile}
-          alt="작성자 프로필"
-        />
-        <A.ProfileText>{articleData.writer}</A.ProfileText>
-
-        <A.chatButton onClick={handleChatClick}>채팅하기</A.chatButton>
-      </A.Container>
-      <A.bottom />
-    </>
-  );
+          <A.chatButton onClick={handleChatClick}>채팅하기</A.chatButton>
+        </A.Container>
+        <A.bottom />
+      </>
+    );
+  };
 };
 
 export default ArticleInfo;
