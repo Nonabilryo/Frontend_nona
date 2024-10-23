@@ -14,7 +14,7 @@ export const mainLine = styled.div`
   width: 100vw;
   height: 0.1vw;
   position: absolute;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 `;
 
 // export const middle = styled.div`
@@ -26,55 +26,55 @@ export const mainLine = styled.div`
 //   flex-direction: column;
 //   justify-content: flex-start;
 //   align-items: center;
-  
+
 // `;
 
 export const frontNlast = styled.div`
-background-color: white;
-width: 50vw;
-display: flex;
-justify-content: center;
+  background-color: white;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
 `;
 
 export const frontTop = styled.div`
-width: 100%;
-height: 13vh;
-display: flex;
-align-items: center;
-justify-content: center;
+  width: 100%;
+  height: 13vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const searchArea = styled.div`
-display: flex;
-align-items: center;
-background-color: #F1F0F0;
-border-radius: 5px;
-padding-right: 0.3vw;
+  display: flex;
+  align-items: center;
+  background-color: #f1f0f0;
+  border-radius: 5px;
+  padding-right: 0.3vw;
 `;
 
 export const search = styled.input`
-width: 16vw;
-height: 4.5vh;
-border: none;
-outline: none;
-background-color: #F1F0F0;
-border-radius: 5px;
-padding-left: 1vw;
-padding-right: 1vw;
-color : #8F8F8F;
+  width: 16vw;
+  height: 4.5vh;
+  border: none;
+  outline: none;
+  background-color: #f1f0f0;
+  border-radius: 5px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  color: #8f8f8f;
 `;
 
 export const searchBtn = styled.button`
-border: none;
-background: none;
+  border: none;
+  background: none;
 
-&:hover{
-  cursor: pointer;
-}
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const searchImg = styled.img`
-width: 1.5vw;
+  width: 1.5vw;
 `;
 
 // export const middleTop = styled.div`
@@ -159,40 +159,41 @@ width: 1.5vw;
 // `;
 
 export const productArea = styled.div`
-width: 20vw;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const DummyImg = styled.img`
-width: 100%;
+  width: 100%;
 `;
 
 export const prodTitle = styled.p`
-font-size: 20px;
-font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 export const prodPrice = styled.p`
-font-size: 30px;
-font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 `;
 
 export const prodContents = styled.p`
-font-size: 17px;
-font-weight: 400;
+  font-size: 17px;
+  font-weight: 400;
 `;
 
 export const prodBtn = styled.button`
-width: 17vw;
-height: 6vh;
-background-color: #28C34D;
-border: none;
-border-radius: 8px;
-font-size: 17px;
-color: white;
-font-weight: bold;
-margin-top: 6vh;
+  width: 17vw;
+  height: 6vh;
+  background-color: #28c34d;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+  margin-top: 6vh;
+  cursor: pointer;
 `;

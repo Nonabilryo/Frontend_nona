@@ -128,7 +128,7 @@ const ArticleInfo = () => {
   const handleChatClick = () => {
     if (articleData.writerIdx) {
       // writerData.idx가 존재할 때만 실행
-      navigate(`/chat/${articleData.writerIdx}`, {
+      navigate(`/chat/`, {
         state: { receiverIdx: articleData.writerIdx },
       });
     } else {

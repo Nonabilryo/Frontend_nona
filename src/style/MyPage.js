@@ -19,7 +19,7 @@ export const line = styled.img`
 export const line2 = styled.img`
   position: absolute;
   width: 0.1vw;
-  height: 130%;
+  height: 115%;
   background-color: #e4e4e4;
   margin-top: 10vw;
   margin-left: 10vw;
@@ -92,32 +92,32 @@ export const checkmine = styled.div`
 
 export const post1 = styled.img`
   position: absolute;
-  margin-left: -340px;
-  margin-top: 300px;
-  width: 240px;
+  margin-left: -23vw;
+  margin-top: 20vw;
+  width: 15vw;
   cursor: pointer;
 `;
 
 export const post2 = styled.img`
   position: absolute;
-  margin-left: -60px;
-  margin-top: 300px;
-  width: 240px;
+  margin-left: -6vw;
+  margin-top: 20vw;
+  width: 15vw;
   cursor: pointer;
 `;
 
 export const post3 = styled.img`
   position: absolute;
-  margin-left: 220px;
-  margin-top: 300px;
-  width: 240px;
+  margin-left: 11vw;
+  margin-top: 20vw;
+  width: 15vw;
   cursor: pointer;
 `;
 
 export const post4 = styled.img`
   position: absolute;
-  margin-left: 500px;
-  margin-top: 300px;
-  width: 240px;
+  margin-left: 28vw;
+  margin-top: 20vw;
+  width: 15vw;
   cursor: pointer;
 `;
