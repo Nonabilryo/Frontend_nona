@@ -12,6 +12,15 @@ border-right: 1.5px solid #E4E4E4;
   
 `;
 
+export const middleMiddle = styled.div`
+width: 100%;
+height: 100%;
+flex-grow: 1;
+overflow: scroll;
+display: flex;
+justify-content: flex-end;
+`;
+
 export const middleTop = styled.div`
 width: 100%;
 height: 10vh;
@@ -58,7 +67,18 @@ align-items: center;
 justify-content: center;
 `;
 
-export const middleMiddle = styled.div`
-height: 100%;
-overflow: scroll;
+export const ChatBubbleArea = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+margin-top: 2vh;
+`;
+
+export const ChatBubble = styled.div`
+background-color: #28C34D;
+padding: 1vh 1vw;
+border-radius: 5px;
+color: white;
+margin-right: 2vw;
+position: relative;
 `;
