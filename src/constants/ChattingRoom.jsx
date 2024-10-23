@@ -18,6 +18,20 @@ const ChattingRoom = () => {
   const location = useLocation();
   const [receiverIdx, setReceiverIdx] = useState(location.state?.receiverIdx || null)
 
+  // 채팅 더미
+  const [newTodo, setNewTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = () => {
+    if (newTodo.trim()) {
+      setTodos((prevTodos) => [
+        ...prevTodos,
+        { id: Date.now(), text: newTodo }, // 새로운 Todo 추가
+      ]);
+      setNewTodo(""); // 입력 필드 초기화
+    }
+  };
+
   useEffect(() => {
     console.log("location.state:", location.state); // location.state 확인
     console.log("userIdx:", userIdx); // writerIdx 확인
@@ -71,10 +85,14 @@ const ChattingRoom = () => {
         withCredentials: true
       });
 
-      setUserIdx(response.data.data.idx);
-      console.log("현재 사용자 ID:", response);
+      if (response.data.state === 0) {
+        setUserIdx(response.data.data.idx); // 사용자 idx를 상태에 설정
+        console.log("현재 사용자 ID:", response.data.data.idx); // idx 로그
+      } else {
+        console.error("서버 오류:", response.data.message);
+      }
     } catch (error) {
-        console.error("userIdx 정보를 가져오는 도중 오류 발생:", error.response ? error.response.data : error.message);
+      console.error("userIdx 정보를 가져오는 도중 오류 발생:", error.response ? error.response.data : error.message);
     }
   };
 
@@ -133,7 +151,14 @@ const ChattingRoom = () => {
         </S.UserWhere>
       </S.middleTop>
       <S.middleMiddle>
-        {messages.map((msg, index) => (
+      <S.ChatBubbleArea>
+          {todos.map((todo) => (
+            <S.ChatBubble key={todo.id} style={{ marginBottom: "10px" }}>
+              {todo.text}
+            </S.ChatBubble>
+          ))}
+        </S.ChatBubbleArea>
+        {/* {messages.map((msg, index) => (
           <div key={index}>
             <strong>{msg.sender}: </strong>
             <span>{msg.content}</span>
@@ -143,13 +168,14 @@ const ChattingRoom = () => {
               {msg.timestamp}
             </span>
           </div>
-        ))}
+        ))} */}
       </S.middleMiddle>
       <S.middleBottom>
         <SendChatInput
-          inputMessage={inputMessage}
-          setInputMessage={setInputMessage}
-          sendMessage={sendMessage}
+        //   inputMessage={inputMessage}
+        //   setInputMessage={setInputMessage}
+        //   sendMessage={sendMessage}
+        newTodo={newTodo} setNewTodo={setNewTodo} addTodo={addTodo}
         />
       </S.middleBottom>
     </S.middle>
