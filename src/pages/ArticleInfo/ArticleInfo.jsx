@@ -10,7 +10,7 @@ import right from "../../assets/img/right.svg";
 const ArticleInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem("accessToken");
 
   const [articleData, setArticleData] = useState({
     title: "",
@@ -126,9 +126,11 @@ const ArticleInfo = () => {
   };
 
   const handleChatClick = () => {
-    if (articleData.writerIdx) { // writerData.idx가 존재할 때만 실행
-      // navigate(`/chat/${articleData.writerIdx}`, { state: { receiverIdx: articleData.writerIdx } });
-      navigate(`/chat`, { state: { receiverIdx: articleData.writerIdx } });
+    if (articleData.writerIdx) {
+      // writerData.idx가 존재할 때만 실행
+      navigate(`/chat/`, {
+        state: { receiverIdx: articleData.writerIdx },
+      });
     } else {
       console.error("작성자의 idx가 설정되지 않았습니다.");
     }
@@ -140,14 +142,24 @@ const ArticleInfo = () => {
         <A.divide />
         <A.Title>{articleData.title}</A.Title>
         <A.ImageContainer>
-          <A.LeftButton img src={left} onClick={handlePrevious} alt="이전 이미지" />
+          <A.LeftButton
+            img
+            src={left}
+            onClick={handlePrevious}
+            alt="이전 이미지"
+          />
           {articleData.images.length > 0 && (
             <A.Image
               src={articleData.images[currentImageIndex].url}
               alt="상품 이미지"
             />
           )}
-          <A.RightButton img src={right} onClick={handleNext} alt="다음 이미지" />
+          <A.RightButton
+            img
+            src={right}
+            onClick={handleNext}
+            alt="다음 이미지"
+          />
         </A.ImageContainer>
 
         <A.InfoContainer>
