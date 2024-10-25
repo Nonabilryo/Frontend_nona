@@ -2,10 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
+import Cookies from "js-cookie";
 
 const LoginSuccess = () => {
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = Cookies.get("accessToken");
   const [userData, setUserData] = useState({
     idx: "",
     name: "",

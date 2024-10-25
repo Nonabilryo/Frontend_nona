@@ -5,6 +5,7 @@ import googlelogo from "../../assets/img/google_logo.png";
 import cart from "../../assets/img/nonabilryo_cart.png";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
+import Cookies from "js-cookie";
 
 const Login = ({ setIsLogin }) => {
   const navigate = useNavigate();
@@ -61,8 +62,8 @@ const Login = ({ setIsLogin }) => {
     );
     if (response.status) {
       const { accessToken, refreshToken } = response.data.data;
-      localStorage.setItem('accessToken', accessToken); // todo 쿠키로 수정
-      localStorage.setItem('refreshToken', refreshToken); // todo 쿠키로 수정
+      Cookies.set('accessToken', accessToken); // todo 쿠키로 수정
+      Cookies.set('refreshToken', refreshToken); // todo 쿠키로 수정
       setIsLogin(true);
       console.log("---------------------");
       alert("로그인 되었습니다.")

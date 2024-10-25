@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import CONFIG from "../../config/config.json";
+import Cookies from "js-cookie";
 
 import * as M from "../../style/MyPage";
 import "../../style/MyPage";
@@ -17,7 +18,7 @@ import post4 from "../../assets/img/post4.svg"
 function MyPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = Cookies.get("accessToken");
   const [userData, setUserData] = useState({
     idx: "",
     name: "",

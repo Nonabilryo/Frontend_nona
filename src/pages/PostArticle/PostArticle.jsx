@@ -2,6 +2,7 @@ import axios from "axios";
 import { useCallback, useState, useEffect } from "react";
 import CONFIG from "../../config/config.json";
 import { useNavigate } from "react-router";
+import Cookies from "js-cookie";
 
 import * as P from "../../style/PostArticle";
 import "../../style/PostArticle";
@@ -51,7 +52,7 @@ const PostArticle = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: localStorage.getItem("accessToken"),
+            Authorization: Cookies.get("accessToken"),
             // 'userIdx': '18c6ef73-58b7-45a5-ab42-f21a2d58d3ee'
           },
         }

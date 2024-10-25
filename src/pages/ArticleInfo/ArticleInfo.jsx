@@ -10,7 +10,6 @@ import right from "../../assets/img/right.svg";
 const ArticleInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const accessToken = localStorage.getItem("accessToken");
 
   const [articleData, setArticleData] = useState({
     title: "",

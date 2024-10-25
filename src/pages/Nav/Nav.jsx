@@ -4,6 +4,7 @@ import chat from "../../assets/img/chat.png";
 import logo from "../../assets/img/logo.png";
 import * as N from "../../style/Nav.style";
 import { useNavigate } from "react-router";
+import Cookies from "js-cookie";
 
 const Nav = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -23,8 +24,8 @@ const Nav = ({ isLogin }) => {
     navigate("/chat");
   };
   const LogoutHandler = () => {
-    localStorage.setItem("accessToken", null);
-    localStorage.setItem("refreshToken", null);
+    Cookies.set("accessToken", null);
+    Cookies.set("refreshToken", null);
     alert("로그아웃 되었습니다.");
     window.location.reload();
   };

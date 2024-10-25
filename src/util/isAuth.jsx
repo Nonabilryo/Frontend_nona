@@ -1,8 +1,9 @@
 import axios from "axios";
 import CONFIG from "../config/config.json";
+import Cookies from "js-cookie";
 
 const verifyAccessToken = async () => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = Cookies.get("accessToken");
   if (!accessToken) return false; // null 체크
   try {
     const response = await axios.post(
@@ -18,7 +19,7 @@ const verifyAccessToken = async () => {
 };
 
 const refreshTokens = async () => {
-  const refreshToken = localStorage.getItem("refreshToken");
+  const refreshToken = Cookies.get("refreshToken");
   if (!refreshToken) return false; // null 체크
   try {
     const response = await axios.post(
@@ -27,8 +28,8 @@ const refreshTokens = async () => {
       { headers: { "Content-Type": "application/json" } }
     );
     if (response.status === 200) {
-      localStorage.setItem("accessToken", response.data.data.accessToken);
-      localStorage.setItem("refreshToken", response.data.data.refreshToken);
+      Cookies.set("accessToken", response.data.data.accessToken);
+      Cookies.set("refreshToken", response.data.data.refreshToken);
       return true;
     }
   } catch (error) {

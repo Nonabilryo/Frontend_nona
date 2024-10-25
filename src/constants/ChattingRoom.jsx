@@ -8,9 +8,10 @@ import axios from "axios";
 import CONFIG from "../config/config.json";
 import mapImg from "../assets/img/map.svg";
 import userImg from "../assets/img/user.svg";
+import Cookies from "js-cookie";
 
 const ChattingRoom = () => {
-  const token = localStorage.getItem("accessToken");
+  const token = Cookies.get("accessToken");
   const [userIdx, setUserIdx] = useState(null);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");

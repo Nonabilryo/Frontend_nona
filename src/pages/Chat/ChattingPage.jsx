@@ -5,7 +5,6 @@ import searchImg from "../../assets/img/searchGray.svg";
 import dummyImg from "../../assets/img/dummyImg.svg";
 
 const ChattingPage = () => {
-  const token = localStorage.getItem("accessToken");
 
   return (
     <>
